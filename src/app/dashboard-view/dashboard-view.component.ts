@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard-view',
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-view.component.css'],
 })
 export class DashboardViewComponent implements OnInit {
-  constructor() {}
+  @HostListener('window:resize')
+  onResize() {
+    this.currentWindowWidth = window.innerWidth;
+  }
 
-  ngOnInit(): void {}
+  closeResult!: string;
+  public currentWindowWidth!: number;
+
+  constructor(private offcanvasService: NgbOffcanvas) {}
+
+  ngOnInit(): void {
+    this.currentWindowWidth = window.innerWidth;
+  }
 }
