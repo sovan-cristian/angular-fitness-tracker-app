@@ -1,0 +1,180 @@
+
+#test{
+    background-color: rgb(235,236,233);
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.main-test{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.text-overlay{
+    position: relative;
+    width: 20%;
+    height: 450px;
+    margin: 0;
+    padding: 0;
+}
+
+.features{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+
+.features:hover{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: none ; /* IE6-9 */
+    zoom:1; /* needed to trigger "hasLayout" in IE if no width or height is set */
+    -webkit-filter: grayscale(0%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+    }
+
+ 
+
+ .map{
+        filter: grayscale(100%) invert(92%) contrast(100%);
+      }
+
+
+
+    .test{
+        position: absolute;
+        top: 80%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-weight: bold;   
+        width: 75%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .test p {
+        margin: 0;
+        padding: 0;
+    }
+
+    #features{
+        background-color: rgb(34, 34, 34);
+        color: white;
+        height: 100%;
+    }
+
+    .something-test{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    #features .row:first-child{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #features .row:nth-child(2){
+        height: 100%;
+    }
+
+    .footer{
+        padding-top: 5%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer h2{
+        margin: 0;
+    }
+
+    .footer .iframe{
+        border-top: 5px solid rgb(194, 103, 0);
+    }
+
+    .container-fluid{
+        margin: 0;
+        padding: 0;
+    }
+
+    .text-test{
+        text-align: center;
+    }
+    
+
+    .card{
+        border: 3px solid gray;
+        border-radius: 0px;
+    }
+
+    .card-title{
+        border: 2px solid gray;
+        border-radius: 50%;
+        margin: 26%;
+        padding: 15px;
+    }
+
+    #prices{
+        margin: 0;
+    }
+
+
+    .title{
+        width: 32%;
+    }
+
+    .about{
+        border: 4px solid rgb(255, 136, 0);
+        padding-bottom: 5%;
+    }
+
+    @media screen and (max-width: 750px) {
+        .testy{
+            display: flex;
+            flex-direction: column;
+
+            height: 100%;
+        }
+        .text-overlay{
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .test p {
+            font: 1rem;
+        }
+
+        #push-up-image{
+            width: 350px;
+        }
+    }
+   
