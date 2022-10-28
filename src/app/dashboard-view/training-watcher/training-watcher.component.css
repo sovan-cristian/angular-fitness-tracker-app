@@ -1,0 +1,25 @@
+.test{
+    background-color: black;
+    color: white;
+}
+
+.card{
+    width: 32.3%;
+    padding: 0;
+}
+
+td, th{
+    border-right: 1px solid rgb(221, 220, 220);
+}
+
+@media screen and (max-width: 950px) {
+    .card{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .card{
+        width: 100%;
+    }
+}

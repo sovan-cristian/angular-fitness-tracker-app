@@ -14,7 +14,8 @@
         <img src="assets/images/icon-2.png" alt="" style="width:30px">
         Fitness Tracker
     </a>
-    <button class="btn btn-dark" routerLink="/">Log out</button>
+    <button *ngIf="user?.name" class="d-none d-lg-inline btn btn-dark">Hello {{ user?.name  }}</button>
+    <button class="btn btn-dark" routerLink="/" (click)="onLogout()">Log out</button>
 </nav>
 <div class="sidebar">
       <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -27,7 +28,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="" class="nav-link px-4">
+                    <a href="#" class="nav-link px-4">
                         <span>
                             Dashboard
                         </span>
@@ -42,7 +43,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="" class="nav-link px-4">
+                    <a href="#" class="nav-link px-4">
                         <span>
                             Dashboard
                         </span>
@@ -57,7 +58,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="" class="nav-link px-4">
+                    <a href="#" class="nav-link px-4">
                         <span>
                             Dashboard
                         </span>
@@ -72,6 +73,6 @@
       </div>
 
 </div>
-<div id="layoutSidenav" class="mt-5">
-    <app-weight-dashboard></app-weight-dashboard>
+<div id="layoutSidenav" > 
+    <app-training-watcher></app-training-watcher>
 </div>
