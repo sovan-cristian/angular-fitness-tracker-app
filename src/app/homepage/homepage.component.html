@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <header class="row" id="test">
+    <header class="row" id="header-container">
         <nav class="navbar navbar-expand-lg">
-            <div class=" container d-flex justify-content-between px-5">
+            <div class="container d-flex justify-content-between px-3 px-lg-5">
                 <a class="navbar-brand" href="#">
                     <img src="assets/images/icon.png" alt="Logo" width="40" height="" class="d-inline-block align-text-top">
                     Fitness Tracker
@@ -11,6 +11,7 @@
                 (click)="isMenuCollapsed = !isMenuCollapsed">
                     <span class="navbar-toggler-icon"></span>
                   </button>
+                  <!-- Navigation links for mobile collapsed view -->
                   <div *ngIf="isMenuCollapsed" class="collapse navbar-collapse me-2" [ngbCollapse]="isMenuCollapsed">
                     <ul class="navbar-nav me-auto mb-1 mb-lg-0">
                       <li class="nav-item">
@@ -25,10 +26,9 @@
                   
                     </ul>
                   </div>
-                  <form class="">
                     <button class="btn btn-outline-warning" type="submit" routerLink="/login">Log in</button>
-                  </form>
               </div>   
+              <!-- Navigation links for desktop view -->
               <div *ngIf="!isMenuCollapsed" class="collapse navbar-collapse me-2" [ngbCollapse]="isMenuCollapsed">
                 <ul class="navbar-nav me-auto mb-1 mb-lg-0 text-center">
                   <li class="nav-item">
@@ -40,17 +40,17 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#prices">Pricing</a>
                   </li>
-              
                 </ul>
               </div>
             </div>
           </nav>
     </header>
-    <main class="main-test" >
-      <div style="padding-top: 100px; background-color: rgb(235,236,233);">        
+    <main class="main-section" >
+      <!-- About application section -->
+      <div class="title-section">        
         <div class="container" id="about">
-          <div class="row col-12">
-            <div class="col">
+          <div class="row">
+            <div class="col" *ngIf="currentWindowWidth > 990">
               <img src="assets/images/boxer-removebg-preview.png" alt="" style="width: 100%;">
             </div>
             <div class="col-lg col-xs-12">
@@ -63,20 +63,22 @@
           </div>
         </div>
       </div>
-      <div class="container" >
-        <div class="row d-flex justify-content-between" style="margin-top: 100px;">
-          <div class="col-lg-2">
+      <!-- Push-up image section -->
+      <div class="container">
+        <div class="push-up-section row d-flex justify-content-between">
+          <div class="col-lg-2" >
           </div>
-            <div class="col-lg-3 col-sm-12 about d-flex flex-column" style="z-index: 100;margin-bottom: 100px; margin-left: 200px; padding-bottom: 100px;padding-top: 100px;">
-              <h2 style="margin-left: -150px;">Your body is a work of art</h2>
+            <div class="push-up-about col-lg-3 col-sm-12 d-flex flex-column">
+              <h2>Your body is a work of art</h2>
               <p>Small but regular workout effort leads you to beauty and self-confidence. Set your own routine and conditions of training. Take the chance to get proud of yourself. Let your body feel the way to perfection</p>
             </div>
-            <div class="col-lg col-sm-12 d-flex align-items-end" style="z-index: 200; margin-left: -70px; margin-bottom: -0px;">
+            <div class="col-lg col-sm-12 d-flex align-items-end" *ngIf="currentWindowWidth > 990">
               <img src="assets/images/push-up.png" alt="" width="auto" id="push-up-image">
             </div>
         </div>
       </div>         
-      <div style="background-color:rgb(34, 34, 34); color: white; padding: 10% 0%;" id="features">
+      <!-- Trackers overview section -->
+      <div class="trackers-overview" id="features">
         <div class="container">
           <div class="row mx-5">
             <h2>Take advantage of our fitness focused trackers</h2>
@@ -84,46 +86,46 @@
           </div>
         </div>
       </div>
-      <div class="row col-sm-12 something-test">
+      <!-- Trackers cards section -->
+      <div class="row col-sm-12 trackers-main-text">
         <div class="container">
-          <div class="row">
-          </div>
-          <div class="row testy">
+          <div class="row mobile-view-reset">
             <div class="text-overlay col col-sm-12">
-              <img src="assets/images/weight-measuring.jpeg" alt="" class="features">
-              <div class="test">
-                <p >Test of a dumy text</p>
+              <img src="assets/images/weight-measuring.jpeg" alt="" class="trackers-features">
+              <div class="trackers-card-text">
+                <p >Daily weight tracker</p>
               </div>
             </div>
             <div class="text-overlay col col-sm-12">
-              <img src="assets/images/measuring-tape-3.jpeg" alt="" class="features">
-              <div class="test">
-                <p >Test of a dumy text</p>
+              <img src="assets/images/measuring-tape-3.jpeg" alt="" class="trackers-features">
+              <div class="trackers-card-text">
+                <p >Body measurements tracker</p>
               </div>
             </div>
             <div class="text-overlay col col-sm-12">
-              <img src="assets/images/running.jpeg" alt="" class="features">
-              <div class="test">
-                <p >Test of a dumy text</p>
+              <img src="assets/images/running.jpeg" alt="" class="trackers-features">
+              <div class="trackers-card-text">
+                <p >Running times tracker</p>
               </div>
             </div>
             <div class="text-overlay ">
-              <img src="assets/images/weightlifting.jpeg" alt="" class="features">
-              <div class="test">
-                <p >Test of a dumy text</p>
+              <img src="assets/images/weightlifting.jpeg" alt="" class="trackers-features">
+              <div class="trackers-card-text">
+                <p >Gym training tracker</p>
               </div>
             </div>
             <div class="text-overlay col col-sm-12">
-              <img src="assets/images/calorie-counting.jpeg" alt="" class="features">
-              <div class="test">
-                <p >Test of a dumy text</p>
+              <img src="assets/images/calorie-counting.jpeg" alt="" class="trackers-features">
+              <div class="trackers-card-text">
+                <p >Consumed calories tracker</p>
               </div>
             </div>                             
           </div>
         </div>
       </div>
+      <!-- Pricing plans section -->
       <div class="row col-sm-12 my-5 py-5 px-5 d-flex justify-content-center" id="prices">
-        <h2 class="my-5 text-test">Our prices</h2>
+        <h2 class="my-5 main-text">Our prices</h2>
         <div class="card text-center my-3 mx-4" style="width: 12rem;">
           <div class="card-body">
             <h4 class="card-title">1</h4>
@@ -169,7 +171,7 @@
         </div>
       </div>
       <div class="iframe">
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21858.087251410267!2d23.565108954056537!3d46.779463061277646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490e84d86f3265%3A0xd033647b26e6930a!2sParcul%20Central%2C%20Cluj-Napoca!5e0!3m2!1sen!2sro!4v1665741904442!5m2!1sen!2sro" width="100%" height="455" style="border:0; margin: 0; padding: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21858.087251410267!2d23.565108954056537!3d46.779463061277646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490e84d86f3265%3A0xd033647b26e6930a!2sParcul%20Central%2C%20Cluj-Napoca!5e0!3m2!1sen!2sro!4v1665741904442!5m2!1sen!2sro" width="100%" height="455" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </footer>
 </div>

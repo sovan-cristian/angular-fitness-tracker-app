@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
@@ -7,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
   constructor() {}
+  public currentWindowWidth!: number;
 
-  ngOnInit(): void {}
+  @HostListener('window:resize')
+  onResize() {
+    this.currentWindowWidth = window.innerWidth;
+  }
+
+  ngOnInit(): void {
+    this.currentWindowWidth = window.innerWidth;
+  }
 
   public isMenuCollapsed = true;
 }
