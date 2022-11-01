@@ -1,0 +1,83 @@
+
+<div class="container-fluid my-md-5 py-md-5">
+    <div class="row mt-lg-5 text-center">
+        <div class="col-md-12 fw-bold fs-3">Calories overview</div>
+    </div>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+            <div class="card">
+                <div class="card-header fw-bold" style="background-color: orange;">
+                  <p class="card-title text-center">Daily numbers</p>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="text-center">Date</th>
+                      <th scope="col" class="text-center">{{ weightTracker?.unit }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let entry of weightTracker?.data">
+                      <th scope="row" class="text-center"> {{ entry[0] }}</th>
+                      <td class="text-center"> 
+                        <a class="text-decoration-none">
+                            {{ entry[1] }}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        </a> 
+                      </td>
+                    </tr>
+                    <tr style="border-top:1px solid rgb(221, 220, 220);">
+                      <th scope="row" class="text-center">Average</th>
+                      <td class="text-center fw-bold">{{ resultRounded }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card align-self-center" style="width: 26rem; height: 90%">
+                <div class="card-header fw-bold text-center">
+                  Input a new entry
+                </div>
+                <div class="card-body">
+                    <div class="row" style="padding:0;">
+                        <div class="col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Date</label>
+                            <div>
+                                <form class="row row-cols-sm-auto">
+                                    <div class="col-12">
+                                        <div class="input-group">
+                                            <input
+                                                class="form-control"
+                                                placeholder="dd/mm/yyyy"
+                                                name="d2"
+                                                #c2="ngModel"
+                                                [(ngModel)]="model3"
+                                                ngbDatepicker
+                                                #d2="ngbDatepicker"
+                                            />
+                                            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                                                    <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                                  </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> 
+                        </div>
+                        <div class="col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Weight</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ex: 87">
+                        </div>
+                    </div>
+                    <div class="row mt-4 mx-5" style="padding-left:0;">
+                        <button class="btn btn-dark">Submit</button>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>

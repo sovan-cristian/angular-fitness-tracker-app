@@ -7,6 +7,21 @@
     width: 250px;
 }
 
+li > hr {
+    border: none;
+    height: 4px;
+    color: rgb(244, 130, 0);
+    background-color: rgb(255, 136, 0);
+}
+
+.second-title{
+    color: rgb(94, 94, 94);
+}
+
+.second-title:hover{
+    color: rgb(124, 124, 124);
+}
+
 @media (min-width: 992px){
     body{
         overflow: auto !important;

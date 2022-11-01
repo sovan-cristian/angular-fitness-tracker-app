@@ -1,0 +1,81 @@
+<div class="container pt-5">
+    <div class="row my-5 mx-1 m-md-5 gap-3">
+        <div class="d-flex justify-content-between" style="padding: 0;">
+            <h3>Last 3 chest and shoulders workout routines</h3>
+            <button class="btn btn-dark" (click)="toggle()">New Workout</button>
+        </div>
+        <div [hidden]="isCollapsed">
+            <div class="row d-flex flex-row">
+              <form class="row row-cols-sm-auto">
+                <div class="col-12">
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      placeholder="yyyy-mm-dd"
+                      name="dp"
+                      ngbDatepicker
+                      [footerTemplate]="footerTemplate"
+                      #d="ngbDatepicker"
+                      [(ngModel)]="model"
+                    />
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                        <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              
+              <ng-template #footerTemplate>
+                <hr class="my-0" />
+                <button class="btn btn-primary btn-sm m-2 float-start" (click)="model = today; d.close()">Today</button>
+                <button class="btn btn-secondary btn-sm m-2 float-end" (click)="d.close()">Close</button>
+              </ng-template>
+              <select class="form-select m-2" aria-label="Default select example">
+                <option selected>Select the exercise</option>
+                <option value="1">one</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <div class="mb-3 col-3">
+                <label for="exampleFormControlInput1" class="form-label">First set</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="kg/reps">
+              </div>
+              <div class="mb-3 col-3">
+                <label for="exampleFormControlInput2" class="form-label">Second set</label>
+                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="kg/reps">
+              </div>
+              <div class="mb-3 col-3">
+                <label for="exampleFormControlInput3" class="form-label">Third set</label>
+                <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="kg/reps">
+              </div>
+              <button class="btn btn-dark col-2">Save</button>
+            </div>
+          </div>
+          <div class="card" *ngFor="let workout of chestandShoulder">
+            <div class="card-header test fw-bold text-center p-2">
+                {{ workout.date }}
+            </div>
+            <table class="table table-hover p-2">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="row">Exercise name</th>
+                        <td>1st set kg/reps</td>
+                        <td>2nd set kg/reps</td>
+                        <td>3rd set kg/reps</td>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let set of workout.sets ">
+                      <th scope="row">{{ set[0] }}</th>
+                      <td>{{ set[1] }}</td>
+                      <td>{{ set[2] }}</td>
+                      <td>{{ set[3] }}</td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-training-watcher',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./training-watcher.component.css'],
 })
 export class TrainingWatcherComponent implements OnInit {
+  model!: NgbDateStruct;
+  today = this.calendar.getToday();
+
+  public isCollapsed = true;
+
   chestandShoulder = [
     {
       date: '04.10.2022',
@@ -42,7 +48,15 @@ export class TrainingWatcherComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private calendar: NgbCalendar) {}
 
   ngOnInit(): void {}
+
+  toggle() {
+    if (this.isCollapsed === true) {
+      this.isCollapsed = false;
+    } else {
+      this.isCollapsed = true;
+    }
+  }
 }

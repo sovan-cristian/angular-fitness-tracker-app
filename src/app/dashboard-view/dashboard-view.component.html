@@ -10,7 +10,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3 fw-bold" href="index.html">
+    <a class="navbar-brand ps-3 fw-bold" routerLink="main">
         <img src="assets/images/icon-2.png" alt="" style="width:30px">
         Fitness Tracker
     </a>
@@ -19,51 +19,66 @@
 </nav>
 <div class="sidebar">
     <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-body p-0 my-2">
+    <div class="offcanvas-body p-0 my-2" >
         <nav class="navbar-dark">
         <ul class="navbar-nav my-5">
             <li>
-                <div class="text-muted small fw-bold text-uppercase px-4">
-                    Core
-                </div>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-4">
+                <a routerLink="weight-watcher" class="nav-link px-4">
                     <span>
-                        Dashboard
+                        Daily watcher
                     </span>
                 </a>
+                <ul class="navbar-nav px-4">
+                    <li>
+                        <a routerLink="weight-watcher/weight" class="nav-link px-4">
+                            <span class="second-title">
+                                Weight Tracker
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="weight-watcher/calories" class="nav-link px-4">
+                            <span class="second-title">
+                                Calories Tracker
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="weight-watcher/waist" class="nav-link px-4">
+                            <span class="second-title">
+                                Waist tracker
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="my-2">
                 <hr>
             </li>
+
             <li>
-                <div class="text-muted small fw-bold text-uppercase px-4">
-                    Core
-                </div>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-4">
+                <a routerLink="training-watcher" class="nav-link px-4">
                     <span>
-                        Dashboard
+                        Training watcher
                     </span>
                 </a>
             </li>
-            <li class="my-2">
-                <hr>
-            </li>
-            <li>
-                <div class="text-muted small fw-bold text-uppercase px-4">
-                    Core
-                </div>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-4">
-                    <span>
-                        Dashboard
-                    </span>
-                </a>
-            </li>
+            <ul class="navbar-nav px-4">
+                <li>
+                    <a routerLink="training-watcher/chest-shoulders" class="nav-link px-4">
+                        <span class="second-title">
+                            Chest and Shoulders
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="training-watcher/biceps-triceps" class="nav-link px-4">
+                        <span class="second-title">
+                            Biceps and triceps
+                        </span>
+                    </a>
+                </li>
+            </ul>
             <li class="my-2">
                 <hr>
             </li>
@@ -73,5 +88,5 @@
     </div>
 </div>
 <div id="layoutSidenav"> 
-    <app-training-watcher></app-training-watcher>
+    <router-outlet></router-outlet>
 </div>
