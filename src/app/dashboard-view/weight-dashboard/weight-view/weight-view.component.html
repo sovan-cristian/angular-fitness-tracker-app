@@ -14,11 +14,11 @@
                   <thead>
                     <tr>
                       <th scope="col" class="text-center">Date</th>
-                      <th scope="col" class="text-center">{{ weightTracker?.unit }}</th>
+                      <th scope="col" class="text-center">{{ allWeightTracker?.unit }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let entry of weightTracker?.data">
+                    <tr *ngFor="let entry of lastSevenData">
                       <th scope="row" class="text-center"> {{ entry[0] }}</th>
                       <td class="text-center"> 
                         <a class="text-decoration-none">
@@ -42,42 +42,49 @@
                   Input a new entry
                 </div>
                 <div class="card-body">
-                    <div class="row" style="padding:0;">
-                        <div class="col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Date</label>
-                            <div>
-                                <form class="row row-cols-sm-auto">
-                                    <div class="col-12">
-                                        <div class="input-group">
-                                            <input
-                                                class="form-control"
-                                                placeholder="dd/mm/yyyy"
-                                                name="d2"
-                                                #c2="ngModel"
-                                                [(ngModel)]="model2"
-                                                ngbDatepicker
-                                                #d2="ngbDatepicker"
-                                            />
-                                            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
-                                                    <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                                                  </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div> 
+                  <div class="col-12">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                      <div class="row">
+                        <div class="col-6 row-cols-sm-auto">
+                          <label for="date" class="form-label">Date</label>
+                          <div class="input-group">
+                              <input
+                                  ngModel=""
+                                  id="date"
+                                  class="form-control"
+                                  placeholder="dd/mm/yyyy"
+                                  name="d2"
+                                  #c2="ngModel"
+                                  [(ngModel)]="model2"
+                                  ngbDatepicker
+                                  #d2="ngbDatepicker"
+                              />
+                              <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                                    <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                </svg>
+                              </button>
+                          </div>
                         </div>
                         <div class="col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Weight</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          <label for="weight" class="form-label">Weight</label>
+                          <input 
+                            ngModel
+                            name="weight"
+                            id="weight" 
+                            type="email" 
+                            class="form-control" 
+                            placeholder="Ex: 87"
+                          >
                         </div>
-                    </div>
-                    <div class="row mt-4 mx-5" style="padding-left:0;">
-                        <button class="btn btn-dark">Submit</button>
-                    </div>
+                      </div>
+                      <div class="row mt-4 justify-content-center">
+                        <button class="btn btn-dark col-11">Submit</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-              </div>
+            </div>
         </div>
     </div>

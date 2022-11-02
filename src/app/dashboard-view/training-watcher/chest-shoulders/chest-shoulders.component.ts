@@ -1,56 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { ExercisesService } from 'src/app/core/services/exercises.service';
+import { FitnessDataStoreService } from 'src/app/store/fitness-data-store.service';
 
 @Component({
   selector: 'app-chest-shoulders',
   templateUrl: './chest-shoulders.component.html',
   styleUrls: ['./chest-shoulders.component.css'],
 })
-export class ChestShouldersComponent implements OnInit {
+export class ChestShouldersComponent implements OnInit, OnChanges {
   model!: NgbDateStruct;
   today = this.calendar.getToday();
 
   public isCollapsed = true;
 
-  chestandShoulder = [
-    {
-      date: '04.10.2022',
-      sets: [
-        ['Biceps bar curl', '25/12', '27.5/10', '30/8'],
-        ['Biceps DB curl', '11/24', '12.5/20', '15/20'],
-        ['1 DB raise', '17.5/12', '20/10', '22.5/10'],
-        ['Bench DB kickback', '7/12', '7/10', '9/8'],
-        ['Skull crusher', '12.5/12', '15/10', '17.5/10'],
-        ['Wrist flexion', '7/24', '7/20', '7/16'],
-      ],
-    },
-    {
-      date: '04.10.2022',
-      sets: [
-        ['Biceps bar curl', '25/12', '27.5/10', '30/8'],
-        ['Biceps DB curl', '11/24', '12.5/20', '15/20'],
-        ['1 DB raise', '17.5/12', '20/10', '22.5/10'],
-        ['Bench DB kickback', '7/12', '7/10', '9/8'],
-        ['Skull crusher', '12.5/12', '15/10', '17.5/10'],
-        ['Wrist flexion', '7/24', '7/20', '7/16'],
-      ],
-    },
-    {
-      date: '04.10.2022',
-      sets: [
-        ['Biceps bar curl', '25/12', '27.5/10', '30/8'],
-        ['Biceps DB curl', '11/24', '12.5/20', '15/20'],
-        ['1 DB raise', '17.5/12', '20/10', '22.5/10'],
-        ['Bench DB kickback', '7/12', '7/10', '9/8'],
-        ['Skull crusher', '12.5/12', '15/10', '17.5/10'],
-        ['Wrist flexion', '7/24', '7/20', '7/16'],
-      ],
-    },
-  ];
+  chestandShoulder!: any;
 
-  constructor(private calendar: NgbCalendar) {}
+  constructor(
+    private calendar: NgbCalendar,
+    private trainingStore: FitnessDataStoreService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.trainingStore.exercises$.subscribe((exercises) => {
+      this.chestandShoulder = exercises;
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // this.trainingStore.exercises$.next()
+  }
 
   toggle() {
     if (this.isCollapsed === true) {

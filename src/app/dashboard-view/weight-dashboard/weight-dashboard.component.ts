@@ -62,5 +62,6 @@ export class WeightDashboardComponent implements OnInit {
     this.weightTracker?.data.forEach((item) => {
       this.result = this.result + Number(item[1]);
     });
+
   }
 }

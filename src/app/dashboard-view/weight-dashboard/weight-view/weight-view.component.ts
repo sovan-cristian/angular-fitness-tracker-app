@@ -1,69 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
+import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
 
 @Component({
   selector: 'app-weight-view',
   templateUrl: './weight-view.component.html',
   styleUrls: ['./weight-view.component.css'],
 })
-export class WeightViewComponent implements OnInit {
+export class WeightViewComponent implements OnInit, OnChanges {
   resultRounded!: number;
   model2!: string;
-  dailyTrackers = [
-    {
-      name: 'Weight Tracker',
-      unit: 'Weight (kg)',
-      data: [
-        ['04-10-2022', '82'],
-        ['04-10-2022', '85'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '86'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-      ],
-    },
-    {
-      name: 'Calorie Tracker',
-      unit: 'Calories',
-      data: [
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-      ],
-    },
-    {
-      name: 'Waist Tracker',
-      unit: 'Waist Size (cm)',
-      data: [
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-        ['04-10-2022', '87'],
-      ],
-    },
-  ];
+  allWeightTracker!: any;
+  lastSevenData!: [];
 
-  weightTracker = this.dailyTrackers.find((element) => {
-    return element.name === 'Weight Tracker';
-  });
-
-  constructor() {}
+  constructor(
+    private dailyTracker: DailyTrackerStoreService,
+    private dailyService: DailyTrackersService
+  ) {}
 
   ngOnInit(): void {
+    this.dailyTracker.weight$.subscribe((weights) => {
+      this.allWeightTracker = weights[0];
+      this.lastSevenData = this.allWeightTracker.data.slice(-7);
+
+      this.getAverage(weights[0]);
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
+  onSubmit(form: NgForm) {
+    let newEntry: any[] = [];
+    let date = `${form.value.d2.day}-${form.value.d2.month}-${form.value.d2.year}`;
+    let weight = form.value.weight;
+    newEntry.push(date, weight);
+
+    let checker = this.allWeightTracker.data.find((element: any) => {
+      return element[0] === date;
+    });
+
+    if (!checker) {
+      this.allWeightTracker.data.push(newEntry);
+      this.dailyService.updateWeight(
+        this.allWeightTracker,
+        this.allWeightTracker.id
+      );
+      this.getAverage(this.allWeightTracker);
+    }
+  }
+
+  getAverage(weights: any) {
     let result = 0;
-    this.weightTracker?.data.forEach((item) => {
+    weights.data.forEach((item: any) => {
       result = result + Number(item[1]);
     });
 
     this.resultRounded = Number(
-      (Math.round((result / 7) * 100) / 100).toFixed(2)
+      (Math.round((result / weights.data.length) * 100) / 100).toFixed(2)
     );
   }
 }

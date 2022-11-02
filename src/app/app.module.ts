@@ -26,6 +26,7 @@ import { ChoiceViewComponent } from './dashboard-view/weight-dashboard/choice-vi
 import { ChestShouldersComponent } from './dashboard-view/training-watcher/chest-shoulders/chest-shoulders.component';
 import { ExerciseChoiceComponent } from './dashboard-view/training-watcher/exercise-choice/exercise-choice.component';
 import { BicepsTricepsComponent } from './dashboard-view/training-watcher/biceps-triceps/biceps-triceps.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -97,6 +98,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     // {
