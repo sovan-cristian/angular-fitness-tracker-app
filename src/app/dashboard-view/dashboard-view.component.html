@@ -23,62 +23,81 @@
         <nav class="navbar-dark">
         <ul class="navbar-nav my-5">
             <li>
-                <a routerLink="weight-watcher" class="nav-link px-4">
+                
+                <a href="#collapseDaily" class="nav-link px-4" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseDaily">
                     <span>
                         Daily watcher
                     </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                          </svg>
+                    </span>
                 </a>
-                <ul class="navbar-nav px-4">
-                    <li>
-                        <a routerLink="weight-watcher/weight" class="nav-link px-4">
-                            <span class="second-title">
-                                Weight Tracker
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="weight-watcher/calories" class="nav-link px-4">
-                            <span class="second-title">
-                                Calories Tracker
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="weight-watcher/waist" class="nav-link px-4">
-                            <span class="second-title">
-                                Waist tracker
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="collapse" id="collapseDaily">
+                    <div class="card card-body bg-dark" >
+                        <ul class="navbar-nav px-4 " >
+                            <li>
+                                <a routerLink="weight-watcher/weight" class="nav-link px-4" >
+                                    <span class="second-title " >
+                                        Weight Tracker
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="weight-watcher/calories" class="nav-link px-4">
+                                    <span class="second-title">
+                                        Calories Tracker
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="weight-watcher/waist" class="nav-link px-4">
+                                    <span class="second-title">
+                                        Waist tracker
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </li>
             <li class="my-2">
                 <hr>
             </li>
 
             <li>
-                <a routerLink="training-watcher" class="nav-link px-4">
+                <a href="#collapseTraining" class="nav-link px-4" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseTraining">
                     <span>
                         Training watcher
                     </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                          </svg>
+                    </span>
                 </a>
             </li>
-            <ul class="navbar-nav px-4">
-                <li>
-                    <a routerLink="training-watcher/chest-shoulders" class="nav-link px-4">
-                        <span class="second-title">
-                            Chest and Shoulders
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="training-watcher/biceps-triceps" class="nav-link px-4">
-                        <span class="second-title">
-                            Biceps and triceps
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse" id="collapseTraining">
+                <div class="card card-body bg-dark">
+                    <ul class="navbar-nav px-4">
+                        <li>
+                            <a routerLink="training-watcher/chest-shoulders" class="nav-link px-4">
+                                <span class="second-title">
+                                    Chest and Shoulders
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="training-watcher/biceps-triceps" class="nav-link px-4">
+                                <span class="second-title">
+                                    Biceps and triceps
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <li class="my-2">
                 <hr>
             </li>

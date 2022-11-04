@@ -32,8 +32,30 @@ export class DailyTrackersService {
     return this.http.get(`${url}`);
   }
 
+  updateCalories(data: any, id: number) {
+    const endPoint = `/calories/${id}`;
+    return this.http
+      .patch(this.baseUrl + endPoint, data, {
+        headers: { ['Content-Type']: 'application/json' },
+      })
+      .subscribe((val) => {
+        console.log('PATCH call successful value returned in body', val);
+      });
+  }
+
   getWaist() {
     const url = `${this.baseUrl}/waist`;
     return this.http.get(`${url}`);
+  }
+
+  updateWaist(data: any, id: number) {
+    const endPoint = `/waist/${id}`;
+    return this.http
+      .patch(this.baseUrl + endPoint, data, {
+        headers: { ['Content-Type']: 'application/json' },
+      })
+      .subscribe((val) => {
+        console.log('PATCH call successful value returned in body', val);
+      });
   }
 }

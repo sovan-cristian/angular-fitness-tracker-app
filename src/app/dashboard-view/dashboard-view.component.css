@@ -22,6 +22,12 @@ li > hr {
     color: rgb(124, 124, 124);
 }
 
+.card-body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 @media (min-width: 992px){
     body{
         overflow: auto !important;

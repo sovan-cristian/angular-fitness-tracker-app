@@ -1,10 +1,10 @@
 <div class="container pt-5">
     <div class="row my-5 mx-1 m-md-5 gap-3">
         <div class="d-flex justify-content-between" style="padding: 0;">
-            <h3>Last 3 biceps and triceps workout routines</h3>
-            <button class="btn btn-dark" (click)="toggle()">New Workout</button>
+            <h3>Biceps and Triceps</h3>
+            <button class="btn btn-dark" (click)="openVerticallyCentered(content)">New Workout</button>
         </div>
-        <div [hidden]="isCollapsed">
+        <!-- <div [hidden]="isCollapsed">
             <div class="row d-flex flex-row">
               <form class="row row-cols-sm-auto">
                 <div class="col-12">
@@ -53,29 +53,71 @@
               </div>
               <button class="btn btn-dark col-2">Save</button>
             </div>
-          </div>
-          <div class="card" *ngFor="let workout of chestandShoulder">
-            <div class="card-header test fw-bold text-center p-2">
-                {{ workout.date }}
+          </div> -->
+          
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+              <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
             </div>
-            <table class="table table-hover p-2">
-                <thead>
-                    <tr class="table-dark">
-                        <th scope="row">Exercise name</th>
-                        <td>1st set kg/reps</td>
-                        <td>2nd set kg/reps</td>
-                        <td>3rd set kg/reps</td>
+            <div class="modal-body">
+              <form *ngIf="isChanged">
+                <div class="mb-3">
+                  <label for="dateOfBirth" class="mb-2">Select date</label>
+                  <div class="input-group">
+                    <input
+                      id="dateOfBirth"
+                      class="form-control"
+                      placeholder="yyyy-mm-dd"
+                      name="dp"
+                      ngbDatepicker
+                      #dp="ngbDatepicker"
+                    />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </form>
+
+              <div *ngIf="!isChanged">
+                <select class="form-select m-2" aria-label="Default select example">
+                  <option selected>Select the exercise</option>
+                  <option value="1">one</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-dark" (click)="test()">Next</button>
+              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+            </div>
+          </ng-template>
+          <hr class="my-3 mb-1">
+          <div class="row d-flex justify-content-center my-1">
+            <h6 style="font-size: 0.9em; margin-bottom: 2%;">Last 3 workout routines</h6>
+            <div class="card mx-0 mx-lg-1 my-3 my-lg-0" *ngFor="let workout of chestandShoulder">
+              <div class="card-header test fw-bold text-center p-2">
+                  {{ workout.date }}
+              </div>
+              <table class="table table-hover p-2">
+                  <thead>
+                      <tr class="table-header">
+                          <th scope="row">Exercise name</th>
+                          <td>1st set kg/reps</td>
+                          <td>2nd set kg/reps</td>
+                          <td>3rd set kg/reps</td>
+                        </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let set of workout.sets ">
+                        <th scope="row">{{ set[0] }}</th>
+                        <td>{{ set[1] }}</td>
+                        <td>{{ set[2] }}</td>
+                        <td>{{ set[3] }}</td>
                       </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let set of workout.sets ">
-                      <th scope="row">{{ set[0] }}</th>
-                      <td>{{ set[1] }}</td>
-                      <td>{{ set[2] }}</td>
-                      <td>{{ set[3] }}</td>
-                    </tr>
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+            </div>
           </div>
     </div>
 </div>

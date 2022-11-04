@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbCalendar,
+  NgbDateStruct,
+  NgbModal,
+  NgbModalConfig,
+  NgbModalOptions,
+} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-biceps-triceps',
   templateUrl: './biceps-triceps.component.html',
   styleUrls: ['./biceps-triceps.component.css'],
+  providers: [NgbModalConfig, NgbModal],
 })
 export class BicepsTricepsComponent implements OnInit {
   model!: NgbDateStruct;
   today = this.calendar.getToday();
 
-  public isCollapsed = true;
+  public isChanged = true;
 
   chestandShoulder = [
     {
@@ -48,15 +55,23 @@ export class BicepsTricepsComponent implements OnInit {
     },
   ];
 
-  constructor(private calendar: NgbCalendar) {}
+  constructor(
+    private calendar: NgbCalendar,
+    config: NgbModalConfig,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {}
 
-  toggle() {
-    if (this.isCollapsed === true) {
-      this.isCollapsed = false;
-    } else {
-      this.isCollapsed = true;
-    }
+  openVerticallyCentered(content: any) {
+    this.modalService.open(content, {
+      backdrop: 'static',
+      keyboard: false,
+      centered: true,
+    });
+  }
+
+  test() {
+    this.isChanged = false;
   }
 }
