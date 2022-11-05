@@ -10,7 +10,7 @@ export class FitnessDataStoreService {
   addTraining$ = new Subject<any>();
 
   constructor(private trainingService: ExercisesService) {
-    this.trainingService.getChandSh().subscribe((exercises) => {
+    this.trainingService.getBiandTri().subscribe((exercises) => {
       this.exercises$.next(exercises);
     });
   }
