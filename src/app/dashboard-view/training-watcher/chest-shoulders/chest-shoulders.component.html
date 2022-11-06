@@ -1,66 +1,103 @@
 <div class="container pt-5">
-    <div class="row my-5 mx-1 m-md-5 gap-3">
-        <div class="d-flex justify-content-between" style="padding: 0;">
-            <h3>Last 3 chest and shoulders workout routines</h3>
-            <button class="btn btn-dark" (click)="toggle()">New Workout</button>
-        </div>
-        <div [hidden]="isCollapsed">
-            <div class="row d-flex flex-row">
-              <form class="row row-cols-sm-auto">
-                <div class="col-12">
-                  <div class="input-group">
-                    <input
-                      class="form-control"
-                      placeholder="yyyy-mm-dd"
-                      name="dp"
-                      ngbDatepicker
-                      [footerTemplate]="footerTemplate"
-                      #d="ngbDatepicker"
-                      [(ngModel)]="model"
-                    />
-                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus" viewBox="0 0 16 16">
-                        <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                      </svg>
-                    </button>
-                  </div>
+  <div class="row my-5 mx-1 m-md-5 gap-3">
+      <div class="d-flex justify-content-between" style="padding: 0;">
+          <h3>Biceps and Triceps</h3>
+          <button class="btn btn-dark" (click)="openVerticallyCentered(content)">New Workout</button>
+      </div>
+        <ng-template #content let-c="close" let-d="dismiss">
+          <form #f="ngForm">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Input your workout details</h4>
+            <button type="button" #closeButton class="btn-close" aria-label="Close" (click)="cancelCheck(f)"></button>
+          </div>
+          <div class="modal-body">
+            <div *ngIf="isChanged">
+              <div class="mb-3">
+                <label for="dateOfBirth" class="mb-2">Select date</label>
+                <div class="input-group">
+                  <input
+                    ngModel
+                    id="dateOfWorkout"
+                    class="form-control"
+                    placeholder="yyyy-mm-dd"
+                    name="dp"
+                    ngbDatepicker
+                    #dp="ngbDatepicker"
+                  />
+                  <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
                 </div>
-              </form>
-              
-              <ng-template #footerTemplate>
-                <hr class="my-0" />
-                <button class="btn btn-primary btn-sm m-2 float-start" (click)="model = today; d.close()">Today</button>
-                <button class="btn btn-secondary btn-sm m-2 float-end" (click)="d.close()">Close</button>
-              </ng-template>
-              <select class="form-select m-2" aria-label="Default select example">
-                <option selected>Select the exercise</option>
-                <option value="1">one</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <div class="mb-3 col-3">
-                <label for="exampleFormControlInput1" class="form-label">First set</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="kg/reps">
               </div>
-              <div class="mb-3 col-3">
-                <label for="exampleFormControlInput2" class="form-label">Second set</label>
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="kg/reps">
+            </div>
+
+            <div *ngIf="!isChanged" class="container">
+              <div class="row">
+                <p>Select the exercise</p>
+                <select class="form-select m-2" aria-label="Default select example" ngModel name="select">
+                  <option *ngFor="let exercise of exerciseNames" [ngValue]="exercise">{{ exercise }}</option>
+                </select>
               </div>
-              <div class="mb-3 col-3">
-                <label for="exampleFormControlInput3" class="form-label">Third set</label>
-                <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="kg/reps">
+              <div class="row d-flex justify-content-center mt-3" >
+                <div class="mb-3 col-4" style="height: 100%;">
+                  <label for="exampleFormControlInput1" class="form-label">1st set</label>
+                  <input ngModel name="firstSet" type="text" class="form-control" id="exampleFormControlInput1" placeholder="kg/reps">
+                </div>
+                <div class="mb-3 col-4">
+                  <label for="exampleFormControlInput2" class="form-label">2nd set</label>
+                  <input ngModel name="secondSet" type="text" class="form-control" id="exampleFormControlInput2" placeholder="kg/reps">
+                </div>
+                <div class="mb-3 col-4">
+                  <label for="exampleFormControlInput3" class="form-label">3rd set</label>
+                  <input ngModel name="thirdSet" type="text" class="form-control" id="exampleFormControlInput3" placeholder="kg/reps">
+                </div>
               </div>
-              <button class="btn btn-dark col-2">Save</button>
             </div>
           </div>
-          <div class="card" *ngFor="let workout of chestandShoulder">
-            <div class="card-header test fw-bold text-center p-2">
-                {{ workout.date }}
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-outline-dark" (click)="cancelCheck(f)">Cancel</button>
+            <button *ngIf="isChanged" class="btn btn-outline-dark" (click)="firstNext(f)">Next</button>
+            <button *ngIf="!isChanged" id="test" class="btn btn-outline-dark" (click)="secondNext(f)">{{ buttonText }}</button>
+          </div>
+        </form>
+        </ng-template>
+        <hr class="my-3 mb-1">
+        <div class="row d-flex justify-content-center my-1">
+          <h6 style="font-size: 0.9em; margin-bottom: 2%;">Last 3 workout routines</h6>
+          <div class="card mx-0 mx-lg-1 my-3 my-lg-0" *ngFor="let workout of chestAndShoulders">
+            <div class="card-header test fw-boldp-2 d-flex justify-content-between">
+              <div></div>
+              <p class="text-center m-2">
+                {{ workout.date.day }}-{{ workout.date.month }}-{{ workout.date.year }}
+              </p>
+              <a style="cursor: pointer;" class="link-dark" (click)="onDelete(workout.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 m-2" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+              </svg>
+              </a>
             </div>
+            <ng-template #content let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Update the set (kg/reps)</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+              </div>
+              <div class="modal-body">
+                <form #form="ngForm">
+                  <div class="mb-3 d-flex ">
+                    <input 
+                    ngModel
+                    name="newSet"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ex:12/10"
+                    id="newSet">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="updateData(form)">Save</button>
+              </div>
+            </ng-template>
             <table class="table table-hover p-2">
                 <thead>
-                    <tr class="table-dark">
+                    <tr class="table-header">
                         <th scope="row">Exercise name</th>
                         <td>1st set kg/reps</td>
                         <td>2nd set kg/reps</td>
@@ -68,14 +105,39 @@
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let set of workout.sets ">
-                      <th scope="row">{{ set[0] }}</th>
-                      <td>{{ set[1] }}</td>
-                      <td>{{ set[2] }}</td>
-                      <td>{{ set[3] }}</td>
+                    <tr *ngFor="let set of workout.sets, index as i ">
+                      <th scope="row">{{ set.name }}</th>
+                      <td class="text-center">
+                        {{ set.firstSet }} 
+                        <a class="link-dark cursor" (click)="onUpdate(workout.id, i, 'firstSet', content)" style="cursor: pointer;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        </a>
+                      </td>
+                      <td class="text-center">
+                        {{ set.secondSet }}
+                        <a class="link-dark cursor" (click)="onUpdate(workout.id, i, 'secondSet', content)" style="cursor: pointer;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        </a>
+                      </td>
+                      <td class="text-center">
+                        {{ set.thirdSet }}
+                        <a class="link-dark cursor" (click)="onUpdate(workout.id, i, 'thirdSet', content)" style="cursor: pointer;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        </a>
+                      </td>
                     </tr>
                 </tbody>
               </table>
           </div>
-    </div>
+        </div>
+  </div>
 </div>

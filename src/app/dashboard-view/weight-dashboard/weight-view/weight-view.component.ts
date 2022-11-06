@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
 import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
@@ -20,9 +14,10 @@ export class WeightViewComponent implements OnInit {
   allWeightTracker!: any;
   lastSevenData!: [];
   weightModel!: any;
-  test!: any;
   editMode = false;
   indexOfUpdate!: number;
+  userIndex!: number;
+  wholeData!: any;
 
   constructor(
     private dailyTracker: DailyTrackerStoreService,
@@ -30,11 +25,15 @@ export class WeightViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dailyTracker.weight$.subscribe((weights) => {
-      this.allWeightTracker = weights[0];
+    this.dailyTracker.data$.subscribe((data) => {
+      this.userIndex = data[0].id;
+      this.wholeData = data;
+
+      let test = data[0];
+      this.allWeightTracker = test.data[0].weight[0];
       this.filterDays();
 
-      this.getAverage(weights[0]);
+      this.getAverage(this.allWeightTracker);
     });
   }
 
@@ -51,10 +50,9 @@ export class WeightViewComponent implements OnInit {
     if (this.editMode) {
       this.allWeightTracker.data.splice(this.indexOfUpdate, 1, newEntry);
 
-      this.dailyService.updateWeight(
-        this.allWeightTracker,
-        this.allWeightTracker.id
-      );
+      this.wholeData[0].data[0].weight[0] = this.allWeightTracker;
+      this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
       this.getAverage(this.allWeightTracker);
       this.editMode = false;
       form.reset();
@@ -67,7 +65,10 @@ export class WeightViewComponent implements OnInit {
     });
 
     let secondChecker = this.allWeightTracker.data.find((element: any) => {
-      return element[0] === date;
+      return (
+        `${element[0].day}-${element[0].month}-${element[0].year}` ===
+        `${date.day}-${date.month}-${date.year}`
+      );
     });
 
     if (!firstChecker) {
@@ -76,17 +77,20 @@ export class WeightViewComponent implements OnInit {
           form.value.d2.month
         }-${form.value.d2.year}`
       );
+      return;
     } else if (!secondChecker) {
       this.allWeightTracker.data.push(newEntry);
-      this.dailyService.updateWeight(
-        this.allWeightTracker,
-        this.allWeightTracker.id
-      );
+      this.wholeData[0].data[0].weight[0] = this.allWeightTracker;
+      this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
       this.getAverage(this.allWeightTracker);
-      this.filterDays;
+      this.filterDays();
       form.reset();
     } else {
-      alert(`Data for ${date} had already been registered`);
+      alert(
+        `Data for ${date.day}-${date.month}-${date.year} had already been registered`
+      );
+      return;
     }
   }
 
@@ -108,18 +112,24 @@ export class WeightViewComponent implements OnInit {
     this.indexOfUpdate = i;
   }
 
-  onDelete(element: any, i: any) {
+  onDelete(i: any) {
     this.indexOfUpdate = i;
     this.allWeightTracker.data.splice(this.indexOfUpdate, 1);
-    this.dailyService.updateWeight(
-      this.allWeightTracker,
-      this.allWeightTracker.id
-    );
+
+    this.wholeData[0].data[0].weight[0] = this.allWeightTracker;
+    this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
     this.getAverage(this.allWeightTracker);
     this.filterDays();
   }
 
   filterDays() {
+    this.allWeightTracker.data.sort((a: any, b: any): any => {
+      if (a[0].month === b[0].month) {
+        return a[0].day - b[0].day;
+      }
+    });
+
     if (this.allWeightTracker.data.length > 7) {
       this.lastSevenData = this.allWeightTracker.data.slice(-7);
     } else {

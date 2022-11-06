@@ -11,13 +11,13 @@ export class DailyTrackersService {
     this.baseUrl = 'http://localhost:3000';
   }
 
-  getWeight() {
-    const url = `${this.baseUrl}/weight`;
+  getData(id: any) {
+    const url = `${this.baseUrl}/users?firebaseID=${id}`;
     return this.http.get(`${url}`);
   }
 
-  updateWeight(data: any, id: number) {
-    const endPoint = `/weight/${id}`;
+  updateData(data: any, id: number) {
+    const endPoint = `/users/${id}`;
     return this.http
       .patch(this.baseUrl + endPoint, data, {
         headers: { ['Content-Type']: 'application/json' },
@@ -27,35 +27,22 @@ export class DailyTrackersService {
       });
   }
 
-  getCalories() {
-    const url = `${this.baseUrl}/calories`;
-    return this.http.get(`${url}`);
-  }
-
-  updateCalories(data: any, id: number) {
-    const endPoint = `/calories/${id}`;
-    return this.http
-      .patch(this.baseUrl + endPoint, data, {
+  createUser(data: any) {
+    const url = `${this.baseUrl}/users`;
+    this.http
+      .post(url, data, {
         headers: { ['Content-Type']: 'application/json' },
       })
-      .subscribe((val) => {
-        console.log('PATCH call successful value returned in body', val);
-      });
-  }
-
-  getWaist() {
-    const url = `${this.baseUrl}/waist`;
-    return this.http.get(`${url}`);
-  }
-
-  updateWaist(data: any, id: number) {
-    const endPoint = `/waist/${id}`;
-    return this.http
-      .patch(this.baseUrl + endPoint, data, {
-        headers: { ['Content-Type']: 'application/json' },
-      })
-      .subscribe((val) => {
-        console.log('PATCH call successful value returned in body', val);
-      });
+      .subscribe(
+        (val) => {
+          console.log('PATCH call successful value returned in body', val);
+        },
+        (response) => {
+          console.log('PATCH call in error', response);
+        },
+        () => {
+          console.log('The PATCH observable is now completed.');
+        }
+      );
   }
 }

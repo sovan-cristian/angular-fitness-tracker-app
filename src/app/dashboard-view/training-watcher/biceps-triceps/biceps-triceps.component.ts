@@ -7,7 +7,9 @@ import {
   NgbModalConfig,
   NgbModalOptions,
 } from '@ng-bootstrap/ng-bootstrap';
+import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
 import { ExercisesService } from 'src/app/core/services/exercises.service';
+import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
 import { FitnessDataStoreService } from 'src/app/store/fitness-data-store.service';
 
 @Component({
@@ -27,7 +29,11 @@ export class BicepsTricepsComponent implements OnInit {
   exerciseForEdit!: number;
   setForEdit!: string;
 
+  userIndex!: number;
+  wholeData!: any;
+
   newWorkout = {
+    id: 1,
     date: {
       day: '',
       month: '',
@@ -49,16 +55,19 @@ export class BicepsTricepsComponent implements OnInit {
     private calendar: NgbCalendar,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private fitnessData: ExercisesService,
-    private fitnessDataStore: FitnessDataStoreService,
-    private exerciseService: ExercisesService
+    private dailyTracker: DailyTrackerStoreService,
+    private dailyService: DailyTrackersService
   ) {}
 
   ngOnInit(): void {
     this.newWorkout.sets.pop();
 
-    this.fitnessDataStore.exercises$.subscribe((data) => {
-      this.bicepsAndTriceps = data;
+    this.dailyTracker.data$.subscribe((data) => {
+      this.userIndex = data[0].id;
+      this.wholeData = data;
+
+      let placeHolder = data[0];
+      this.bicepsAndTriceps = placeHolder.data[0].BicepsAndTriceps;
       this.filterWorkouts();
     });
   }
@@ -112,28 +121,33 @@ export class BicepsTricepsComponent implements OnInit {
       return !alreadyFilled.includes(data);
     });
 
-    console.log(this.exerciseNames);
-
     if (this.newWorkout.sets.length == 5) {
       this.buttonText = 'Submit';
     }
 
     if (this.newWorkout.sets.length == 6) {
-      this.fitnessData.addBiandTri(this.newWorkout);
-      this.fitnessData.getBiandTri().subscribe((data) => {
-        this.bicepsAndTriceps = data;
-        this.filterWorkouts();
-      });
+      this.newWorkout.id = Math.floor(Math.random() * 1000);
+      this.wholeData[0].data[0].BicepsAndTriceps.push(this.newWorkout);
+      this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
       this.resetForm(f);
+      this.filterWorkouts();
     }
   }
 
   onDelete(id: any) {
-    this.exerciseService.deleteBiandTri(id);
-    this.fitnessData.getBiandTri().subscribe((data) => {
-      this.bicepsAndTriceps = data;
-      this.filterWorkouts();
-    });
+    let indexToChange;
+
+    this.wholeData[0].data[0].BicepsAndTriceps.find(
+      (element: any, index: any) => {
+        indexToChange = index;
+        return element.id == id;
+      }
+    );
+
+    this.wholeData[0].data[0].BicepsAndTriceps.splice(indexToChange, 1);
+    this.filterWorkouts();
+    this.dailyService.updateData(this.wholeData[0], this.userIndex);
   }
 
   onUpdate(id: any, index: any, set: any, content: any) {
@@ -148,14 +162,24 @@ export class BicepsTricepsComponent implements OnInit {
   }
 
   updateData(newForm: NgForm) {
-    let toBeUpdated = this.bicepsAndTriceps.find((data: any) => {
-      return data.id == this.idForEdit;
-    });
+    let indexTest;
+    let toBeUpdated = this.wholeData[0].data[0].BicepsAndTriceps.find(
+      (data: any, index: any) => {
+        indexTest = index;
+
+        return data.id == this.idForEdit;
+      }
+    );
 
     toBeUpdated.sets[this.exerciseForEdit][this.setForEdit] =
       newForm.value.newSet;
 
-    this.exerciseService.updateBiandTri(this.idForEdit, toBeUpdated);
+    this.wholeData[0].data[0].BicepsAndTriceps.splice(
+      indexTest,
+      1,
+      toBeUpdated
+    );
+    this.dailyService.updateData(this.wholeData[0], this.userIndex);
 
     this.modalService.dismissAll();
     newForm.reset();
@@ -173,6 +197,7 @@ export class BicepsTricepsComponent implements OnInit {
     this.isChanged = true;
 
     this.newWorkout = {
+      id: 1,
       date: {
         day: '',
         month: '',
@@ -192,10 +217,18 @@ export class BicepsTricepsComponent implements OnInit {
   }
 
   filterWorkouts() {
+    // this.bicepsAndTriceps.sort((a: any, b: any): any => {
+    //   if (a.date.month === b.date.month) {
+    //     return a.date.day - b.date.day;
+    //   } else {
+    //     return a.date.month - b.date.month;
+    //   }
+    // });
     if (this.bicepsAndTriceps.length > 3) {
-      this.bicepsAndTriceps = this.bicepsAndTriceps.slice(-3);
+      this.bicepsAndTriceps =
+        this.wholeData[0].data[0].BicepsAndTriceps.slice(-3);
     } else {
-      this.bicepsAndTriceps = this.bicepsAndTriceps;
+      this.bicepsAndTriceps = this.wholeData[0].data[0].BicepsAndTriceps;
     }
   }
 }

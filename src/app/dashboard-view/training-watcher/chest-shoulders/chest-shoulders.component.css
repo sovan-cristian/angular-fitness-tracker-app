@@ -1,6 +1,6 @@
 .test{
-    background-color: black;
-    color: white;
+    background-color:orange;
+    color: rgb(46, 46, 46);
 }
 
 .card{
@@ -10,6 +10,12 @@
 
 table{
     margin-bottom: 0;
+    font-size: 0.75em;
+}
+
+.table-header{
+    background-color: rgb(179, 179, 179);
+    color: rgb(255, 255, 255);
 }
 
 td, th{
@@ -23,6 +29,10 @@ td, th{
 }
 
 @media screen and (max-width: 1200px) {
+    .row{
+        margin: 0;
+        padding: 0;
+    }
     .card{
         width: 100%;
     }

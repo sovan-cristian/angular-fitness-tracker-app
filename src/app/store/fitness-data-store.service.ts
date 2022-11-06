@@ -6,12 +6,12 @@ import { ExercisesService } from '../core/services/exercises.service';
   providedIn: 'root',
 })
 export class FitnessDataStoreService {
-  exercises$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  addTraining$ = new Subject<any>();
+  // exercises$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  // addTraining$ = new Subject<any>();
 
   constructor(private trainingService: ExercisesService) {
-    this.trainingService.getBiandTri().subscribe((exercises) => {
-      this.exercises$.next(exercises);
-    });
+    // this.trainingService.getBiandTri().subscribe((exercises) => {
+    //   this.exercises$.next(exercises);
+    // });
   }
 }

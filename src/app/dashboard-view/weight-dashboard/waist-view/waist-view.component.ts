@@ -16,6 +16,8 @@ export class WaistViewComponent implements OnInit {
   waistModel!: any;
   editMode = false;
   indexOfUpdate!: number;
+  userIndex!: number;
+  wholeData!: any;
 
   constructor(
     private dailyTracker: DailyTrackerStoreService,
@@ -23,11 +25,15 @@ export class WaistViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dailyTracker.waist$.subscribe((waist) => {
-      this.allWaistTracker = waist[0];
+    this.dailyTracker.data$.subscribe((data) => {
+      this.userIndex = data[0].id;
+      this.wholeData = data;
+
+      let test = data[0];
+      this.allWaistTracker = test.data[0].waist[0];
       this.filterDays();
 
-      this.getAverage(waist[0]);
+      this.getAverage(this.allWaistTracker);
     });
   }
 
@@ -38,16 +44,15 @@ export class WaistViewComponent implements OnInit {
       month: form.value.d2.month,
       day: form.value.d2.day,
     };
-    let weight = form.value.weight;
-    newEntry.push(date, weight);
+    let waist = form.value.waist;
+    newEntry.push(date, waist);
 
     if (this.editMode) {
       this.allWaistTracker.data.splice(this.indexOfUpdate, 1, newEntry);
 
-      this.dailyService.updateWaist(
-        this.allWaistTracker,
-        this.allWaistTracker.id
-      );
+      this.wholeData[0].data[0].waist[0] = this.allWaistTracker;
+      this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
       this.getAverage(this.allWaistTracker);
       this.editMode = false;
       form.reset();
@@ -60,7 +65,10 @@ export class WaistViewComponent implements OnInit {
     });
 
     let secondChecker = this.allWaistTracker.data.find((element: any) => {
-      return element[0] === date;
+      return (
+        `${element[0].day}-${element[0].month}-${element[0].year}` ===
+        `${date.day}-${date.month}-${date.year}`
+      );
     });
 
     if (!firstChecker) {
@@ -69,17 +77,20 @@ export class WaistViewComponent implements OnInit {
           form.value.d2.month
         }-${form.value.d2.year}`
       );
+      return;
     } else if (!secondChecker) {
       this.allWaistTracker.data.push(newEntry);
-      this.dailyService.updateWaist(
-        this.allWaistTracker,
-        this.allWaistTracker.id
-      );
+      this.wholeData[0].data[0].waist[0] = this.allWaistTracker;
+      this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
       this.getAverage(this.allWaistTracker);
-      this.filterDays;
+      this.filterDays();
       form.reset();
     } else {
-      alert(`Data for ${date} had already been registered`);
+      alert(
+        `Data for ${date.day}-${date.month}-${date.year} had already been registered`
+      );
+      return;
     }
   }
 
@@ -101,18 +112,24 @@ export class WaistViewComponent implements OnInit {
     this.indexOfUpdate = i;
   }
 
-  onDelete(element: any, i: any) {
+  onDelete(i: any) {
     this.indexOfUpdate = i;
     this.allWaistTracker.data.splice(this.indexOfUpdate, 1);
-    this.dailyService.updateWaist(
-      this.allWaistTracker,
-      this.allWaistTracker.id
-    );
+
+    this.wholeData[0].data[0].waist[0] = this.allWaistTracker;
+    this.dailyService.updateData(this.wholeData[0], this.userIndex);
+
     this.getAverage(this.allWaistTracker);
     this.filterDays();
   }
 
   filterDays() {
+    this.allWaistTracker.data.sort((a: any, b: any): any => {
+      if (a[0].month === b[0].month) {
+        return a[0].day - b[0].day;
+      }
+    });
+
     if (this.allWaistTracker.data.length > 7) {
       this.lastSevenData = this.allWaistTracker.data.slice(-7);
     } else {

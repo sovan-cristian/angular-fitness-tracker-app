@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
+import { User } from '../core/interfaces/user.interface';
+import { AuthService } from '../core/services/auth.service';
 import { DailyTrackersService } from '../core/services/daily-trackers.service';
 import { ExercisesService } from '../core/services/exercises.service';
 
@@ -9,20 +11,25 @@ import { ExercisesService } from '../core/services/exercises.service';
 export class DailyTrackerStoreService {
   weight$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   waist$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  calories$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  data$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   addWeight$ = new Subject<any>();
 
-  constructor(private dailyService: DailyTrackersService) {
-    this.dailyService.getWeight().subscribe((weight) => {
-      this.weight$.next(weight);
-    });
+  user: User | null = null;
+  subscriptions: Subscription = new Subscription();
+  user$: Observable<User> = this.authService.user$.asObservable();
 
-    this.dailyService.getWaist().subscribe((waist) => {
-      this.waist$.next(waist);
-    });
+  constructor(
+    private dailyService: DailyTrackersService,
+    private authService: AuthService
+  ) {
+    this.subscriptions.add(
+      this.user$.subscribe((user: User) => {
+        this.user = user;
 
-    this.dailyService.getCalories().subscribe((calories) => {
-      this.calories$.next(calories);
-    });
+        this.dailyService.getData(this.user?.uid).subscribe((data) => {
+          this.data$.next(data);
+        });
+      })
+    );
   }
 }
