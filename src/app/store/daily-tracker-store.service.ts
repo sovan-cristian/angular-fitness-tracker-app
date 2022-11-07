@@ -26,9 +26,11 @@ export class DailyTrackerStoreService {
       this.user$.subscribe((user: User) => {
         this.user = user;
 
-        this.dailyService.getData(this.user?.uid).subscribe((data) => {
-          this.data$.next(data);
-        });
+        if (this.user) {
+          this.dailyService.getData(this.user?.uid).subscribe((data) => {
+            this.data$.next(data);
+          });
+        }
       })
     );
   }

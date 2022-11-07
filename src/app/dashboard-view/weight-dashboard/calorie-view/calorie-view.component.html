@@ -6,9 +6,15 @@
 
   <div class="container">
     <div class="row d-flex justify-content-center reset">
-          <div class="card">
-              <div class="card-header fw-bold" style="background-color: orange;">
+          <div class="card" [hidden]="!togglerCalories">
+              <div class="card-header fw-bold d-flex justify-content-around"style="background-color: orange;">
                 <p class="card-title text-center">Daily numbers (Last 7 days)</p>
+                <a class="p-1 link-dark" style="margin-top: 3px;" (click)="toggleFunction()">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                    <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
+                  </svg>
+                </a>
               </div>
               <table class="table">
                 <thead>
@@ -42,6 +48,19 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="card" [hidden]="togglerCalories" style="width: 500px">
+              <div class="card-header fw-bold d-flex justify-content-between" style="background-color: orange;">
+                <div></div>
+                <p class="card-title text-center">Daily numbers (Last 7 days)</p>
+                <a class="p-1 link-dark" style="margin-top: 3px;" (click)="toggleFunction()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                </a>
+              </div>
+
+              <canvas id="canvas" width="500px" height="500px"></canvas>
             </div>
             <div class="card align-self-center" style="width: 26rem; height: 90%">
               <div class="card-header fw-bold text-center">

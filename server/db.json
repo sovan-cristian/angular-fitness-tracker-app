@@ -8,46 +8,6 @@
         {
           "ChestAndShoulder": [
             {
-              "id": 1,
-              "date": {
-                "day": "4",
-                "month": "10",
-                "year": "2022"
-              },
-              "sets": [
-                {
-                  "name": "Bench press",
-                  "firstSet": "20/12",
-                  "secondSet": "500/500",
-                  "thirdSet": "10/10"
-                },
-                {
-                  "name": "Inclined press",
-                  "firstSet": "12/12",
-                  "secondSet": "14/12",
-                  "thirdSet": "16/12"
-                },
-                {
-                  "name": "Bench DB press",
-                  "firstSet": "8/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "12/12"
-                },
-                {
-                  "name": "Fluturari umeri",
-                  "firstSet": "6/12",
-                  "secondSet": "8/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Front disc raise",
-                  "firstSet": "25/12",
-                  "secondSet": "25/12",
-                  "thirdSet": "25/12"
-                }
-              ]
-            },
-            {
               "id": 980,
               "date": {
                 "day": 1,
@@ -57,7 +17,7 @@
               "sets": [
                 {
                   "name": "Bench press",
-                  "firstSet": "10/10",
+                  "firstSet": "500/500",
                   "secondSet": "10/10",
                   "thirdSet": "10/10"
                 },
@@ -76,7 +36,7 @@
                 {
                   "name": "Fluturari umeri",
                   "firstSet": "10/10",
-                  "secondSet": "10/10",
+                  "secondSet": "250/250",
                   "thirdSet": "10/10"
                 },
                 {
@@ -84,46 +44,6 @@
                   "firstSet": "10/10",
                   "secondSet": "10/10",
                   "thirdSet": "10/10"
-                }
-              ]
-            },
-            {
-              "id": 774,
-              "date": {
-                "day": 16,
-                "month": 11,
-                "year": 2022
-              },
-              "sets": [
-                {
-                  "name": "Bench press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
-                },
-                {
-                  "name": "Inclined press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
-                },
-                {
-                  "name": "Bench DB press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
-                },
-                {
-                  "name": "Fluturari umeri",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
-                },
-                {
-                  "name": "Front disc raise",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
                 }
               ]
             },
@@ -159,6 +79,46 @@
                   "firstSet": "15/15",
                   "secondSet": "15/15",
                   "thirdSet": "15/15"
+                }
+              ]
+            },
+            {
+              "id": 170,
+              "date": {
+                "day": 23,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
                 }
               ]
             }
@@ -409,14 +369,6 @@
                     "month": 11,
                     "day": 16
                   },
-                  "89"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 16
-                  },
                   "90"
                 ],
                 [
@@ -466,6 +418,46 @@
                     "day": 22
                   },
                   "90"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 23
+                  },
+                  "88"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 24
+                  },
+                  "88"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 25
+                  },
+                  "93"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 26
+                  },
+                  "89"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 27
+                  },
+                  "91"
                 ]
               ]
             }
@@ -1291,6 +1283,260 @@
           ]
         }
       ]
+    },
+    {
+      "firebaseID": "rrOeHUtlAdeDjUZyFwgPPDQaVOl2",
+      "name": null,
+      "data": [
+        {
+          "ChestAndShoulder": [
+            {
+              "id": 1,
+              "date": {
+                "day": "4",
+                "month": "12",
+                "year": "2022"
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "20 / 12",
+                  "secondSet": "500 / 500",
+                  "thirdSet": "10 / 10"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "12 / 12",
+                  "secondSet": "14 / 12",
+                  "thirdSet": "16 / 12"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "8 / 12",
+                  "secondSet": "10 / 12",
+                  "thirdSet": "12 / 12"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "6 / 12",
+                  "secondSet": "8 / 12",
+                  "thirdSet": "10 / 12"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "25 / 12",
+                  "secondSet": "25 / 12",
+                  "thirdSet": "25 / 12"
+                }
+              ]
+            }
+          ],
+          "BicepsAndTriceps": [
+            {
+              "id": 1,
+              "date": {
+                "day": "3",
+                "month": "12",
+                "year": "2022"
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "20 / 12",
+                  "secondSet": "25 / 12",
+                  "thirdSet": "28 / 12"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "12 / 12",
+                  "secondSet": "14 / 12",
+                  "thirdSet": "16 / 12"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "8 / 12",
+                  "secondSet": "10 / 12",
+                  "thirdSet": "12 / 12"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "10/10",
+                  "secondSet": "8 / 12",
+                  "thirdSet": "10 / 12"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "25 / 12",
+                  "secondSet": "25 / 12",
+                  "thirdSet": "25 / 12"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "25 / 12",
+                  "secondSet": "25 / 12",
+                  "thirdSet": "25 / 12"
+                }
+              ]
+            }
+          ],
+          "weight": [
+            {
+              "id": "1",
+              "name": "Weight Tracker",
+              "unit": "Weight (kg)",
+              "data": [
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 15
+                  },
+                  "95"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 16
+                  },
+                  "92"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 17
+                  },
+                  "93"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 24
+                  },
+                  "93.5"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 25
+                  },
+                  "93"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 26
+                  },
+                  "95"
+                ]
+              ]
+            }
+          ],
+          "calories": [
+            {
+              "id": "1",
+              "name": "Calorie Tracker",
+              "unit": "Calories",
+              "data": [
+                [
+                  {
+                    "year": "2022",
+                    "month": "11",
+                    "day": "7"
+                  },
+                  "2000"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 8
+                  },
+                  "2300"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 9
+                  },
+                  "2400"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 10
+                  },
+                  "2500"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 12
+                  },
+                  "2340"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 14
+                  },
+                  "2300"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 17
+                  },
+                  "2350"
+                ]
+              ]
+            }
+          ],
+          "waist": [
+            {
+              "id": "1",
+              "name": "Waist Tracker",
+              "unit": "Waist Size (cm)",
+              "data": [
+                [
+                  {
+                    "year": "2022",
+                    "month": "11",
+                    "day": "7"
+                  },
+                  "95"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 8
+                  },
+                  "96"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 9
+                  },
+                  "97"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 3
     }
   ]
 }

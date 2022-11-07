@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Chart, registerables } from 'chart.js';
 import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
 import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
 
@@ -9,6 +10,7 @@ import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.serv
   styleUrls: ['./weight-view.component.css'],
 })
 export class WeightViewComponent implements OnInit {
+
   resultRounded!: number;
   model2!: any;
   allWeightTracker!: any;
@@ -18,6 +20,14 @@ export class WeightViewComponent implements OnInit {
   indexOfUpdate!: number;
   userIndex!: number;
   wholeData!: any;
+  toggler = true;
+
+  dates:string[] = [];
+  weights: number[] = [];
+  
+
+  chart: any;
+  canvas!:any;
 
   constructor(
     private dailyTracker: DailyTrackerStoreService,
@@ -25,13 +35,48 @@ export class WeightViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    Chart.register(...registerables);
     this.dailyTracker.data$.subscribe((data) => {
       this.userIndex = data[0].id;
+
       this.wholeData = data;
 
       let test = data[0];
       this.allWeightTracker = test.data[0].weight[0];
       this.filterDays();
+      
+      
+      this.lastSevenData?.forEach((res: any) => {
+        this.dates.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+        this.weights.push(Number(res[1]));
+      });
+
+      let unit = `${this.allWeightTracker.unit}`
+
+      this.canvas = document.getElementById('canvas')
+      this.chart = new Chart(this.canvas, {
+        type: 'line',
+        data: {
+          labels: this.dates,
+          datasets: [{
+            label: unit,
+            data: this.weights,
+            borderColor: '#3cba9f',
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+           },
+          title: {
+           display: false,
+          }
+         }
+        },
+      });
 
       this.getAverage(this.allWeightTracker);
     });
@@ -57,6 +102,7 @@ export class WeightViewComponent implements OnInit {
       this.editMode = false;
       form.reset();
       this.filterDays();
+      this.chartDataUpdate();
       return;
     }
 
@@ -86,13 +132,16 @@ export class WeightViewComponent implements OnInit {
       this.getAverage(this.allWeightTracker);
       this.filterDays();
       form.reset();
+      
     } else {
       alert(
         `Data for ${date.day}-${date.month}-${date.year} had already been registered`
-      );
-      return;
-    }
+        );
+        return;
+      }
+      this.chartDataUpdate();
   }
+
 
   getAverage(weights: any) {
     let result = 0;
@@ -105,6 +154,7 @@ export class WeightViewComponent implements OnInit {
     );
   }
 
+
   onUpdate(element: any, i: any) {
     this.weightModel = element[1];
     this.model2 = element[0];
@@ -112,15 +162,18 @@ export class WeightViewComponent implements OnInit {
     this.indexOfUpdate = i;
   }
 
+
   onDelete(i: any) {
     this.indexOfUpdate = i;
     this.allWeightTracker.data.splice(this.indexOfUpdate, 1);
 
     this.wholeData[0].data[0].weight[0] = this.allWeightTracker;
+    console.log(this.wholeData);
     this.dailyService.updateData(this.wholeData[0], this.userIndex);
-
+ 
     this.getAverage(this.allWeightTracker);
     this.filterDays();
+    this.chartDataUpdate()
   }
 
   filterDays() {
@@ -135,5 +188,32 @@ export class WeightViewComponent implements OnInit {
     } else {
       this.lastSevenData = this.allWeightTracker.data;
     }
+  }
+
+  toggleFunction(){
+    if( this.toggler == true){
+      this.toggler = false
+      console.log(this.toggler);
+      
+    }else{
+      this.toggler = true
+      console.log(this.toggler);
+      
+    }
+  }
+
+  chartDataUpdate(){
+    this.dates = []
+    this.weights = []
+    
+    this.lastSevenData.forEach((res: any) => {
+      this.dates.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+      this.weights.push(Number(res[1]));
+    });
+
+    this.chart.data.datasets[0].data = this.weights
+    this.chart.data.labels = this.dates
+
+    this.chart.update()
   }
 }

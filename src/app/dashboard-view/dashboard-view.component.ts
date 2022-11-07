@@ -32,21 +32,16 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
   constructor(
     private offcanvasService: NgbOffcanvas,
     private authService: AuthService,
-    private existingChecker: DailyTrackersService
+    private existingChecker: DailyTrackerStoreService,
+    private sererAdding: DailyTrackersService
   ) {
     this.subscriptions.add(
       this.user$.subscribe((user: User) => {
         this.user = user;
 
-        this.existingChecker.getData(this.user.uid).subscribe((data: any) => {
-          console.log(data);
-          let test = data;
-
-          if (test) {
-            console.log('te rog eu');
-            console.log(data.length);
-
-            if (test.length == 0) {
+        this.sererAdding.getData(this.user?.uid).subscribe((data: any) => {
+          if (data.length == 0) {
+            if (this.user?.uid) {
               let userTemplate = {
                 firebaseID: this.user?.uid,
                 name: this.user?.name,
@@ -195,11 +190,10 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
                   },
                 ],
               };
-              this.existingChecker.createUser(userTemplate);
-              return;
-            } else {
-              console.log('not success');
+              this.sererAdding.createUser(userTemplate);
             }
+            return;
+          } else {
           }
         });
       })

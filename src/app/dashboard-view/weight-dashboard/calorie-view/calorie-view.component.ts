@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Chart, registerables } from 'chart.js';
 import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
 import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
 
@@ -19,12 +20,21 @@ export class CalorieViewComponent implements OnInit {
   userIndex!: number;
   wholeData!: any;
 
+  togglerCalories = true
+  datesCalories:string[] = [];
+  calories: number[] = [];
+  
+
+  chartCalories: any;
+  canvasCalories!:any;
+
   constructor(
     private dailyTracker: DailyTrackerStoreService,
     private dailyService: DailyTrackersService
   ) {}
 
   ngOnInit(): void {
+    Chart.register(...registerables);
     this.dailyTracker.data$.subscribe((data) => {
       this.userIndex = data[0].id;
       this.wholeData = data;
@@ -32,6 +42,38 @@ export class CalorieViewComponent implements OnInit {
       let test = data[0];
       this.allCaloriesTracker = test.data[0].calories[0];
       this.filterDays();
+
+      this.lastSevenData?.forEach((res: any) => {
+        this.datesCalories.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+        this.calories.push(Number(res[1]));
+      });
+
+      let unit = `${this.allCaloriesTracker.unit}`
+
+      this.canvasCalories = document.getElementById('canvas')
+      this.chartCalories = new Chart(this.canvasCalories, {
+        type: 'line',
+        data: {
+          labels: this.datesCalories,
+          datasets: [{
+            label: unit,
+            data: this.calories,
+            borderColor: '#3cba9f',
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+           },
+          title: {
+           display: false,
+          }
+         }
+        },
+      });
 
       this.getAverage(this.allCaloriesTracker);
     });
@@ -57,6 +99,7 @@ export class CalorieViewComponent implements OnInit {
       this.editMode = false;
       form.reset();
       this.filterDays();
+      this.chartDataUpdate();
       return;
     }
 
@@ -86,6 +129,8 @@ export class CalorieViewComponent implements OnInit {
       this.getAverage(this.allCaloriesTracker);
       this.filterDays;
       form.reset();
+
+      this.chartDataUpdate();
     } else {
       alert(
         `Data for ${date.day}-${date.month}-${date.year} had already been registered`
@@ -121,6 +166,7 @@ export class CalorieViewComponent implements OnInit {
 
     this.getAverage(this.allCaloriesTracker);
     this.filterDays();
+    this.chartDataUpdate();
   }
 
   filterDays() {
@@ -135,5 +181,32 @@ export class CalorieViewComponent implements OnInit {
     } else {
       this.lastSevenData = this.allCaloriesTracker.data;
     }
+  }
+
+  toggleFunction(){
+    if( this.togglerCalories == true){
+      this.togglerCalories = false
+      console.log(this.togglerCalories);
+      
+    }else{
+      this.togglerCalories = true
+      console.log(this.togglerCalories);
+      
+    }
+  }
+
+  chartDataUpdate(){
+    this.datesCalories = []
+    this.calories = []
+    
+    this.lastSevenData.forEach((res: any) => {
+      this.datesCalories.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+      this.calories.push(Number(res[1]));
+    });
+
+    this.chartCalories.data.datasets[0].data = this.calories
+    this.chartCalories.data.labels = this.datesCalories
+
+    this.chartCalories.update()
   }
 }

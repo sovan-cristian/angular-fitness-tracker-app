@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Chart, registerables } from 'chart.js';
 import { DailyTrackersService } from 'src/app/core/services/daily-trackers.service';
 import { DailyTrackerStoreService } from 'src/app/store/daily-tracker-store.service';
 
@@ -19,12 +20,21 @@ export class WaistViewComponent implements OnInit {
   userIndex!: number;
   wholeData!: any;
 
+  togglerWaist = true
+  datesWaist:string[] = [];
+  waists: number[] = [];
+  
+
+  chartWaist: any;
+  canvasWaist!:any;
+
   constructor(
     private dailyTracker: DailyTrackerStoreService,
     private dailyService: DailyTrackersService
   ) {}
 
   ngOnInit(): void {
+    Chart.register(...registerables);
     this.dailyTracker.data$.subscribe((data) => {
       this.userIndex = data[0].id;
       this.wholeData = data;
@@ -32,6 +42,38 @@ export class WaistViewComponent implements OnInit {
       let test = data[0];
       this.allWaistTracker = test.data[0].waist[0];
       this.filterDays();
+
+      this.lastSevenData?.forEach((res: any) => {
+        this.datesWaist.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+        this.waists.push(Number(res[1]));
+      });
+
+      let unit = `${this.allWaistTracker.unit}`
+
+      this.canvasWaist = document.getElementById('canvas')
+      this.chartWaist = new Chart(this.canvasWaist, {
+        type: 'line',
+        data: {
+          labels: this.datesWaist,
+          datasets: [{
+            label: unit,
+            data: this.waists,
+            borderColor: '#3cba9f',
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+           },
+          title: {
+           display: false,
+          }
+         }
+        },
+      });
 
       this.getAverage(this.allWaistTracker);
     });
@@ -57,6 +99,7 @@ export class WaistViewComponent implements OnInit {
       this.editMode = false;
       form.reset();
       this.filterDays();
+      this.chartDataUpdate();
       return;
     }
 
@@ -86,6 +129,8 @@ export class WaistViewComponent implements OnInit {
       this.getAverage(this.allWaistTracker);
       this.filterDays();
       form.reset();
+
+      this.chartDataUpdate();
     } else {
       alert(
         `Data for ${date.day}-${date.month}-${date.year} had already been registered`
@@ -121,6 +166,7 @@ export class WaistViewComponent implements OnInit {
 
     this.getAverage(this.allWaistTracker);
     this.filterDays();
+    this.chartDataUpdate();
   }
 
   filterDays() {
@@ -135,5 +181,32 @@ export class WaistViewComponent implements OnInit {
     } else {
       this.lastSevenData = this.allWaistTracker.data;
     }
+  }
+
+  toggleFunction(){
+    if( this.togglerWaist == true){
+      this.togglerWaist = false
+      console.log(this.togglerWaist);
+      
+    }else{
+      this.togglerWaist = true
+      console.log(this.togglerWaist);
+      
+    }
+  }
+
+  chartDataUpdate(){
+    this.datesWaist = []
+    this.waists = []
+    
+    this.lastSevenData.forEach((res: any) => {
+      this.datesWaist.push(`${res[0].year}-${res[0].month}-${res[0].day}`);
+      this.waists.push(Number(res[1]));
+    });
+
+    this.chartWaist.data.datasets[0].data = this.waists
+    this.chartWaist.data.labels = this.datesWaist
+
+    this.chartWaist.update()
   }
 }

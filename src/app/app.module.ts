@@ -28,6 +28,8 @@ import { ExerciseChoiceComponent } from './dashboard-view/training-watcher/exerc
 import { BicepsTricepsComponent } from './dashboard-view/training-watcher/biceps-triceps/biceps-triceps.component';
 import { HttpClientModule } from '@angular/common/http';
 
+ 
+
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },

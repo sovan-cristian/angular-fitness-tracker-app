@@ -10,7 +10,7 @@ table{
 .card{
     margin: 3.5%;
     padding: 0;
-    width: 18rem;
+    width: 19rem;
 }
 
 .card-title{
@@ -23,6 +23,9 @@ table{
 padding-left: 4%;
 }
 
+a{
+    cursor: pointer;
+}
 
 @media screen and (max-width: 1181px) {
     .container > .row{

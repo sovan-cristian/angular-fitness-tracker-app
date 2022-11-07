@@ -23,6 +23,10 @@ table{
 padding-left: 4%;
 }
 
+a{
+    cursor: pointer;
+}
+
 
 
 @media screen and (max-width: 1181px) {
