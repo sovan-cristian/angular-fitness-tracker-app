@@ -26,7 +26,7 @@
                   
                     </ul>
                   </div>
-                    <button class="btn btn-outline-warning" type="submit" routerLink="/login">Log in</button>
+                    <button class="btn btn-outline-warning" routerLink="/login">Log in</button>
               </div>   
               <!-- Navigation links for desktop view -->
               <div *ngIf="!isMenuCollapsed" class="collapse navbar-collapse me-2" [ngbCollapse]="isMenuCollapsed">
@@ -64,7 +64,7 @@
         </div>
       </div>
       <!-- Push-up image section -->
-      <div class="container">
+      <div class="container push-up-container ">
         <div class="push-up-section row d-flex justify-content-between">
           <div class="col-lg-2" >
           </div>
@@ -80,7 +80,7 @@
       <!-- Trackers overview section -->
       <div class="trackers-overview" id="features">
         <div class="container">
-          <div class="row mx-5">
+          <div class="row trackers-text">
             <h2>Take advantage of our fitness focused trackers</h2>
             <p>We offer a number of tools that allow you to get in charge of your fitness journey and get visual represantation of the hard work you put towards your goals. Do not let your efforts be unnoticed</p>
           </div>
@@ -90,31 +90,31 @@
       <div class="row col-sm-12 trackers-main-text">
         <div class="container">
           <div class="row mobile-view-reset">
-            <div class="text-overlay col col-sm-12">
+            <div class="text-overlay  col-md-4 col-sm-12">
               <img src="assets/images/weight-measuring.jpeg" alt="" class="trackers-features">
               <div class="trackers-card-text">
                 <p >Daily weight tracker</p>
               </div>
             </div>
-            <div class="text-overlay col col-sm-12">
+            <div class="text-overlay  col-md-4 col-sm-12">
               <img src="assets/images/measuring-tape-3.jpeg" alt="" class="trackers-features">
               <div class="trackers-card-text">
                 <p >Body measurements tracker</p>
               </div>
             </div>
-            <div class="text-overlay col col-sm-12">
+            <div class="text-overlay  col-md-4  col-sm-12">
               <img src="assets/images/running.jpeg" alt="" class="trackers-features">
               <div class="trackers-card-text">
                 <p >Running times tracker</p>
               </div>
             </div>
-            <div class="text-overlay ">
+            <div class="text-overlay col-md-4  col-sm-12">
               <img src="assets/images/weightlifting.jpeg" alt="" class="trackers-features">
               <div class="trackers-card-text">
                 <p >Gym training tracker</p>
               </div>
             </div>
-            <div class="text-overlay col col-sm-12">
+            <div class="text-overlay  col-md-4  col-sm-12">
               <img src="assets/images/calorie-counting.jpeg" alt="" class="trackers-features">
               <div class="trackers-card-text">
                 <p >Consumed calories tracker</p>

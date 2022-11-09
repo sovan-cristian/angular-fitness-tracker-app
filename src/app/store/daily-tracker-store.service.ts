@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { User } from '../core/interfaces/user.interface';
 import { AuthService } from '../core/services/auth.service';
 import { DailyTrackersService } from '../core/services/daily-trackers.service';
-import { ExercisesService } from '../core/services/exercises.service';
+
 
 @Injectable({
   providedIn: 'root',

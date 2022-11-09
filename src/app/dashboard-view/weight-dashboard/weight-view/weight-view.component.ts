@@ -193,12 +193,8 @@ export class WeightViewComponent implements OnInit {
   toggleFunction(){
     if( this.toggler == true){
       this.toggler = false
-      console.log(this.toggler);
-      
     }else{
       this.toggler = true
-      console.log(this.toggler);
-      
     }
   }
 

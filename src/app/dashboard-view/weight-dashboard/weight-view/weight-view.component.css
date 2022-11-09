@@ -27,18 +27,8 @@ a{
     cursor: pointer;
 }
 
-@media screen and (max-width: 1181px) {
-    .container > .row{
-        padding-top: 0;
-        margin: 0;
-        padding-left: 10%;
-    }
-    .card{
-        width: 42rem;
-    }
-}
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 750px) {
     .container-fluid{
         margin-top: 88px;
     }
@@ -59,5 +49,16 @@ a{
     }
     .reset{
         padding-left: 0px;
+    }
+}
+
+
+@media screen and (max-width: 1181px) and (min-width: 751px) {
+    .container > .row{
+        padding-top: 0;
+        margin: 0;
+    }
+    .card{
+        width: 42rem;
     }
 }

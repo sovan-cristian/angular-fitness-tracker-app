@@ -8,82 +8,327 @@
         {
           "ChestAndShoulder": [
             {
-              "id": 980,
+              "id": 309,
               "date": {
-                "day": 1,
+                "day": 3,
                 "month": 11,
                 "year": 2022
               },
               "sets": [
                 {
                   "name": "Bench press",
-                  "firstSet": "500/500",
-                  "secondSet": "10/10",
-                  "thirdSet": "10/10"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Inclined press",
-                  "firstSet": "10/10",
-                  "secondSet": "10/10",
-                  "thirdSet": "10/10"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Bench DB press",
-                  "firstSet": "10/10",
-                  "secondSet": "10/10",
-                  "thirdSet": "10/10"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Fluturari umeri",
-                  "firstSet": "10/10",
-                  "secondSet": "250/250",
-                  "thirdSet": "10/10"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Front disc raise",
-                  "firstSet": "10/10",
-                  "secondSet": "10/10",
-                  "thirdSet": "10/10"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 }
               ]
             },
             {
-              "id": 795,
+              "id": 254,
               "date": {
-                "day": 20,
+                "day": 10,
                 "month": 11,
                 "year": 2022
               },
               "sets": [
-                {},
                 {
                   "name": "Bench press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Inclined press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Bench DB press",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Fluturari umeri",
-                  "firstSet": "15/15",
-                  "secondSet": "15/15",
-                  "thirdSet": "15/15"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 }
               ]
             },
             {
-              "id": 170,
+              "id": 878,
+              "date": {
+                "day": 12,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 566,
+              "date": {
+                "day": 13,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 986,
+              "date": {
+                "day": 14,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "20/20"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "20/20",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 393,
+              "date": {
+                "day": 18,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "12/12",
+                  "secondSet": "12/12",
+                  "thirdSet": "12/12"
+                }
+              ]
+            },
+            {
+              "id": 961,
+              "date": {
+                "day": 22,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 455,
+              "date": {
+                "day": 22,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Bench press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Inclined press",
+                  "firstSet": "30/30",
+                  "secondSet": "20/20",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB press",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Fluturari umeri",
+                  "firstSet": "20/20",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Front disc raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "20/20"
+                }
+              ]
+            },
+            {
+              "id": 879,
               "date": {
                 "day": 23,
                 "month": 11,
@@ -92,132 +337,38 @@
               "sets": [
                 {
                   "name": "Bench press",
-                  "firstSet": "12/12",
-                  "secondSet": "12/12",
-                  "thirdSet": "12/12"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Inclined press",
-                  "firstSet": "12/12",
-                  "secondSet": "12/12",
-                  "thirdSet": "12/12"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Bench DB press",
-                  "firstSet": "12/12",
-                  "secondSet": "12/12",
-                  "thirdSet": "12/12"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Fluturari umeri",
-                  "firstSet": "12/12",
-                  "secondSet": "12/12",
-                  "thirdSet": "12/12"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Front disc raise",
-                  "firstSet": "12/12",
-                  "secondSet": "12/12",
-                  "thirdSet": "12/12"
-                }
-              ]
-            }
-          ],
-          "BicepsAndTriceps": [
-            {
-              "id": 1,
-              "date": {
-                "day": "4",
-                "month": "10",
-                "year": "2022"
-              },
-              "sets": [
-                {
-                  "name": "Biceps bar curl",
-                  "firstSet": "20/12",
-                  "secondSet": "25/12",
-                  "thirdSet": "28/12"
-                },
-                {
-                  "name": "Biceps DB curl",
-                  "firstSet": "12/12",
-                  "secondSet": "14/12",
-                  "thirdSet": "16/12"
-                },
-                {
-                  "name": "1 DB raise",
-                  "firstSet": "8/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "12/12"
-                },
-                {
-                  "name": "Bench DB kickback",
-                  "firstSet": "6/12",
-                  "secondSet": "8/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Skull crusher",
-                  "firstSet": "25/12",
-                  "secondSet": "25/12",
-                  "thirdSet": "25/12"
-                },
-                {
-                  "name": "Wrist flexion",
-                  "firstSet": "25/12",
-                  "secondSet": "25/12",
-                  "thirdSet": "25/12"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 }
               ]
             },
             {
-              "id": 1,
-              "date": {
-                "day": 19,
-                "month": 11,
-                "year": 2022
-              },
-              "sets": [
-                {
-                  "name": "Biceps bar curl",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Biceps DB curl",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "1 DB raise",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Bench DB kickback",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Skull crusher",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                },
-                {
-                  "name": "Wrist flexion",
-                  "firstSet": "10/12",
-                  "secondSet": "10/12",
-                  "thirdSet": "10/12"
-                }
-              ]
-            },
-            {
-              "id": 789,
+              "id": 262,
               "date": {
                 "day": 27,
                 "month": 11,
@@ -225,86 +376,312 @@
               },
               "sets": [
                 {
-                  "name": "Biceps bar curl",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "name": "Bench press",
+                  "firstSet": "20/45",
+                  "secondSet": "20/45",
+                  "thirdSet": "20/45"
                 },
                 {
-                  "name": "Biceps DB curl",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "name": "Inclined press",
+                  "firstSet": "10/12",
+                  "secondSet": "20/45",
+                  "thirdSet": "20/45"
                 },
                 {
-                  "name": "1 DB raise",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "name": "Bench DB press",
+                  "firstSet": "20/45",
+                  "secondSet": "20/45",
+                  "thirdSet": "20/45"
                 },
                 {
-                  "name": "Bench DB kickback",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "name": "Fluturari umeri",
+                  "firstSet": "20/45",
+                  "secondSet": "30/22",
+                  "thirdSet": "20/45"
                 },
                 {
-                  "name": "Skull crusher",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
-                },
-                {
-                  "name": "Wrist flexion",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "name": "Front disc raise",
+                  "firstSet": "20/45",
+                  "secondSet": "20/45",
+                  "thirdSet": "20/45"
                 }
               ]
-            },
+            }
+          ],
+          "BicepsAndTriceps": [
             {
-              "id": 644,
+              "id": 842,
               "date": {
-                "day": 1,
-                "month": 12,
+                "day": 19,
+                "month": 10,
                 "year": 2022
               },
               "sets": [
                 {
                   "name": "Biceps bar curl",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Biceps DB curl",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "1 DB raise",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Bench DB kickback",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Skull crusher",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
                 },
                 {
                   "name": "Wrist flexion",
-                  "firstSet": "8/8",
-                  "secondSet": "8/8",
-                  "thirdSet": "8/8"
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 532,
+              "date": {
+                "day": 1,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 15,
+              "date": {
+                "day": 2,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 156,
+              "date": {
+                "day": 13,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "24/24",
+                  "secondSet": "24/24",
+                  "thirdSet": "24/24"
+                }
+              ]
+            },
+            {
+              "id": 783,
+              "date": {
+                "day": 16,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                }
+              ]
+            },
+            {
+              "id": 804,
+              "date": {
+                "day": 22,
+                "month": 11,
+                "year": 2022
+              },
+              "sets": [
+                {
+                  "name": "Biceps bar curl",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Biceps DB curl",
+                  "firstSet": "30/30",
+                  "secondSet": "10/15",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "1 DB raise",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Bench DB kickback",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Skull crusher",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "30/30"
+                },
+                {
+                  "name": "Wrist flexion",
+                  "firstSet": "30/30",
+                  "secondSet": "30/30",
+                  "thirdSet": "12/12"
                 }
               ]
             }
@@ -351,65 +728,9 @@
                   {
                     "year": 2022,
                     "month": 11,
-                    "day": 13
-                  },
-                  "89"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 15
-                  },
-                  "88"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 16
-                  },
-                  "90"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
                     "day": 17
                   },
                   "88"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 18
-                  },
-                  "90"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 19
-                  },
-                  "90"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 20
-                  },
-                  "90"
-                ],
-                [
-                  {
-                    "year": 2022,
-                    "month": 11,
-                    "day": 21
-                  },
-                  "91"
                 ],
                 [
                   {
@@ -456,6 +777,30 @@
                     "year": 2022,
                     "month": 11,
                     "day": 27
+                  },
+                  "91"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 28
+                  },
+                  "91"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 28
+                  },
+                  "90"
+                ],
+                [
+                  {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 29
                   },
                   "91"
                 ]

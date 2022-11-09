@@ -20,17 +20,22 @@
     padding: 0;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1181px) and (min-width: 751px) {
     .row{
         padding-top: 0;
-        margin: 0;
+        margin: 12% 0% 3% 3%;
         padding-left: 10%;
+        height: 100%;
+    }
+    .card{
+        width: 80%;
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 750px) {
     .row{
         margin: 10% 0;
+        height: 100%;
         padding-left: 0;
         padding-top: 10%;
         align-items:center;

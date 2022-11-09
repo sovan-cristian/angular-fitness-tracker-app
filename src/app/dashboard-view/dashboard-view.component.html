@@ -17,13 +17,14 @@
     <button *ngIf="user?.name" class="d-none d-lg-inline btn btn-dark">Hello {{ user?.name  }}</button>
     <button class="btn btn-dark" routerLink="/" (click)="onLogout()">Log out</button>
 </nav>
+
+<!-- Sidebar section -->
 <div class="sidebar">
     <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-body p-0 my-2" >
         <nav class="navbar-dark">
         <ul class="navbar-nav my-5">
             <li>
-                
                 <a href="#collapseDaily" class="nav-link px-4" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseDaily">
                     <span>
                         Daily watcher
@@ -106,6 +107,7 @@
     </div>
     </div>
 </div>
+<!-- Main section, where the different trackers are loaded -->
 <div id="layoutSidenav"> 
     <router-outlet></router-outlet>
 </div>

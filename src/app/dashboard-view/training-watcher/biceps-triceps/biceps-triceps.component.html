@@ -1,9 +1,11 @@
 <div class="container pt-5">
     <div class="row my-5 mx-1 m-md-5 gap-3">
+      <!-- Top portion of the page (Title and New Workout button) -->
         <div class="d-flex justify-content-between" style="padding: 0;">
             <h3>Biceps and Triceps</h3>
             <button class="btn btn-dark" (click)="openVerticallyCentered(content)">New Workout</button>
         </div>
+        <!-- Workout creation modal which lets the user inpu their date, sets and reps for each of the exercises. It is activated by the 'New Workout' button -->
           <ng-template #content let-c="close" let-d="dismiss">
             <form #f="ngForm">
             <div class="modal-header">
@@ -11,6 +13,7 @@
               <button type="button" #closeButton class="btn-close" aria-label="Close" (click)="cancelCheck(f)"></button>
             </div>
             <div class="modal-body">
+              <!-- First step of the Modal (Date input). The two total steps contain different sections which are loaded or destroyed based on a boolean value -->
               <div *ngIf="isChanged">
                 <div class="mb-3">
                   <label for="dateOfBirth" class="mb-2">Select date</label>
@@ -29,6 +32,7 @@
                 </div>
               </div>
 
+              <!-- Second step of the Modal (Input of the exercises and sets and reps) -->
               <div *ngIf="!isChanged" class="container">
                 <div class="row">
                   <p>Select the exercise</p>
@@ -52,6 +56,7 @@
                 </div>
               </div>
             </div>
+            <!-- Modal footer with buttons for actions. These are loaded and destroyed based on a boolean value and change their inner text based on the number of exercises already filled in -->
             <div class="modal-footer" >
               <button type="button" class="btn btn-outline-dark" (click)="cancelCheck(f)">Cancel</button>
               <button *ngIf="isChanged" class="btn btn-outline-dark" (click)="firstNext(f)">Next</button>
@@ -59,9 +64,13 @@
             </div>
           </form>
           </ng-template>
+
           <hr class="my-3 mb-1">
+
+          <!-- Workout data tables area  -->
           <div class="row d-flex justify-content-center my-1">
             <h6 style="font-size: 0.9em; margin-bottom: 2%;">Last 3 workout routines</h6>
+            <!-- Header of the table, with date and delete button. -->
             <div class="card mx-0 mx-lg-1 my-3 my-lg-0" *ngFor="let workout of bicepsAndTriceps">
               <div class="card-header test fw-boldp-2 d-flex justify-content-between">
                 <div></div>
@@ -73,6 +82,7 @@
                 </svg>
                 </a>
               </div>
+              <!-- Modal to update the individual entries of sets and reps -->
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Update the set (kg/reps)</h4>
@@ -95,6 +105,7 @@
                   <button type="button" class="btn btn-outline-dark" (click)="updateData(form)">Save</button>
                 </div>
               </ng-template>
+              <!-- Data section of the table -->
               <table class="table table-hover p-2">
                   <thead>
                       <tr class="table-header">

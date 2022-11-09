@@ -107,6 +107,10 @@ body{
     zoom:1; /* needed to trigger "hasLayout" in IE if no width or height is set */
     -webkit-filter: grayscale(0%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
     }
+    
+.trackers-text{
+    margin: 0% 6%;
+}
 
 .trackers-card-text{
     position: absolute;
@@ -168,11 +172,21 @@ body{
 
 /* Mobile device styling */
 @media screen and (max-width: 750px) {
+    .collapse {
+        padding-top: 10%;
+    }
+    .title-section{
+        padding: 20% 5%;
+    }
+
+    .push-up-section{
+        margin-top: 0;
+    }
+
     .push-up-about{
-        padding: 5%;
-        margin-bottom: 100px; 
+        padding: 35% 5%;
+        margin-bottom: 0; 
         margin-left: 0; 
-        padding-top: 100px;
     }
 
     .push-up-about > h2{
@@ -183,10 +197,15 @@ body{
         display: flex;
         flex-direction: column;
         height: 100%;
+        background-color:rgb(34, 34, 34); 
     }
     .text-overlay{
         width: 100%;
-        margin-top: 20px;
+        margin-top: 10%;
+    }
+
+    .trackers-text{
+        margin: 10% 3%;
     }
 
     .test p {
@@ -195,6 +214,47 @@ body{
 
     #push-up-image{
         width: 350px;
+    }
+}
+
+@media screen and (max-width: 1181px) and (min-width: 751px){
+    .title-section{
+        padding-bottom: 15%;
+        padding: 15% 10%;
+    }
+
+    .push-up-about > h2{
+        margin-left: 0;
+    }
+
+    .push-up-container{
+        padding: 0% 5%;
+    }
+
+    .push-up-about{
+        padding: 5%;
+        margin-bottom: 100px; 
+        margin-left: 0; 
+        padding-top: 100px;
+    }
+    .mobile-view-reset{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+        width: 100vw;
+        background-color:rgb(34, 34, 34); 
+        border: 0px;
+        padding: 3% 0%;
+    }
+
+    .text-overlay{
+        width: 40%;
+        margin: 3%;
+    }
+
+    .trackers-text{
+        margin: 0% 3%;
     }
 }
    

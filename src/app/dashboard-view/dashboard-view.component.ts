@@ -3,7 +3,6 @@ import {
   HostListener,
   OnDestroy,
   OnInit,
-  TemplateRef,
 } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
@@ -26,18 +25,21 @@ export class DashboardViewComponent implements OnInit, OnDestroy {
   closeResult!: string;
   public currentWindowWidth!: number;
 
+// Firebase used variables and Observables
   user: User | null = null;
   subscriptions: Subscription = new Subscription();
   user$: Observable<User> = this.authService.user$.asObservable();
   constructor(
-    private offcanvasService: NgbOffcanvas,
     private authService: AuthService,
-    private existingChecker: DailyTrackerStoreService,
     private sererAdding: DailyTrackersService
   ) {
+
+// Get Firebase user details
     this.subscriptions.add(
       this.user$.subscribe((user: User) => {
         this.user = user;
+
+// This checks the database to see if the user's Firebase ID is already in use for an account object with data, if not, it create a new template User
 
         this.sererAdding.getData(this.user?.uid).subscribe((data: any) => {
           if (data.length == 0) {
